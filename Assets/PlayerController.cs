@@ -1,111 +1,138 @@
-using System.Collections;
-using System.Collections.Generic;
+using Unity.Mathematics;
 using UnityEngine;
-using TMPro;
 using UnityEngine.InputSystem;
-using Unity.VisualScripting;
-using UnityEngine.SceneManagement;
-using NUnit.Framework;
-using Unity.Cinemachine;
+
 
 public class PlayerController : MonoBehaviour
 {
-    public Rigidbody rb;
+    public float StrafeAngle;
+    public float moveSpeed = 5f;
+    public float rotationSpeed = 10f; // For smooth rotation, if desired
+    public float horizontalInput, verticalInput, aimHorizontal, aimVertical;
+    private CharacterController characterController;
     [SerializeField]
-    public Collider playerCollider;
+    private UnityEngine.Vector3 moveDirection = UnityEngine.Vector3.zero;
     [SerializeField]
-    Vector3 moveinput;
+    private UnityEngine.Vector3 lookDirection = UnityEngine.Vector3.zero;
+    public Animator animator;
+    public bool moveInput, aimInput;
     [SerializeField]
-    Quaternion toTurnAngle;
-    [SerializeField]
-    public bool isCrouching, isStrafing;
-    public Animator anim;
-    [SerializeField]
-    float walkSpeed;
-    [SerializeField]
-    int crouchSpeed;
-    [SerializeField]
-    Transform PlayerAimTransform;
+    Vector3 moveVector, aimVector, crossProduct;
+    
 
-    // Start is called before the first frame update
     void Start()
     {
-        rb = GetComponent<Rigidbody>();
-        anim = GetComponentInChildren<Animator>();
-        playerCollider = GetComponent<Collider>();
+        characterController = GetComponent<CharacterController>();
+        animator = GetComponentInChildren<Animator>();
+        if (characterController == null)
+        {
+            Debug.LogError("Player needs a CharacterController component!");
+        }
     }
-
-    // Update is called once per frame
     void Update()
     {
-
-    }
-
-    private void FixedUpdate()
-    {
-        
-        //toTurnAngle = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y + Mathf.Atan2(moveinput.x, moveinput.z) * Mathf.Rad2Deg, 0);
-        if (moveinput != Vector3.zero && !isStrafing)
+        StrafeAngle = Vector3.SignedAngle(aimVector, moveVector, transform.up);
+        HandleMovement();
+        if (aimInput&&moveInput)
         {
-            toTurnAngle = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y + Mathf.Atan2(moveinput.x, moveinput.z) * Mathf.Rad2Deg, 0);
-            transform.rotation = Quaternion.Lerp(transform.rotation, toTurnAngle, 10 * Time.fixedDeltaTime);
-            rb.transform.Translate(0, 0, moveinput.magnitude * Time.fixedDeltaTime * walkSpeed);
-        }
-        else if (moveinput != Vector3.zero && isStrafing)
-        {
-            rb.transform.Translate(moveinput.x*walkSpeed*Time.deltaTime, 0, moveinput.z * Time.fixedDeltaTime * walkSpeed);
-        }
-        
-
-
-    }
-
-    public void MovePlayer(InputAction.CallbackContext context)
-    {
-        moveinput = new Vector3(context.ReadValue<Vector2>().x, 0, context.ReadValue<Vector2>().y);
-        anim.SetFloat("Input Y", moveinput.z);
-        anim.SetFloat("Input X", moveinput.x);
-        //toTurnAngle = Quaternion.Euler(0, Camera.main.transform.eulerAngles.y + Mathf.Atan2(moveinput.x, moveinput.z) * Mathf.Rad2Deg, 0);
-        if (context.started)
-        {
+            HandleRotation(aimHorizontal,aimVertical);
+            animator.SetFloat("StrafeAngle", StrafeAngle);
+            //if (characterController.attachedRigidbody.linearVelocity>)
             
         }
-
-        if (context.canceled)
+        else
         {
-            anim.SetFloat("Input Y", 0);
-            anim.SetFloat("Input X", 0);
-        }   
+            HandleRotation(horizontalInput,verticalInput);
+        }
     }
 
-    public void Strafe (InputAction.CallbackContext context)
+    private void HandleMovement()
     {
+        // Get input for movement (left stick or WASD)
+
+        // Calculate movement relative to the camera's forward and right directions
+        UnityEngine.Vector3 cameraForward = Camera.main.transform.forward;
+        UnityEngine.Vector3 cameraRight = Camera.main.transform.right;
+
+        // Flatten the vectors to the XZ plane for isometric movement (no vertical movement on Y axis)
+        cameraForward.y = 0f;
+        cameraRight.y = 0f;
+        cameraForward.Normalize();
+        cameraRight.Normalize();
+        moveDirection = cameraRight * horizontalInput + cameraForward * verticalInput;
+        animator.SetFloat("Input X", horizontalInput);
+        animator.SetFloat("Input Y", verticalInput);
+
+        
+        // Use the CharacterController to move the player
+        // Apply gravity separately if needed, or use a simple move logic
+        characterController.Move(moveDirection * moveSpeed * Time.deltaTime);
+    }
+
+    private void HandleRotation(float genericaimhorizontal, float genericaimvertical)
+    {
+        // Get input for aiming (right stick or mouse input, you need to configure "FireHorizontal"/"FireVertical" axes)
+
+        // Check if there is significant aiming input
+        if (Mathf.Abs(genericaimhorizontal) > 0.1f || Mathf.Abs(genericaimvertical) > 0.1f)
+        {
+            // Create a look direction vector (relative to the world in XZ plane)
+            lookDirection = new Vector3(genericaimhorizontal, 0f, genericaimvertical).normalized;
+            if (aimInput)
+            {    
+                
+            }
+            // Rotate the player to look in the aim direction
+            if (lookDirection != Vector3.zero)
+            {
+                Quaternion targetRotation = Quaternion.LookRotation(lookDirection);
+                // Use Quaternion.Slerp for smooth rotation (optional)
+                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, rotationSpeed * Time.deltaTime);
+                // Or snap rotation immediately:
+                // transform.rotation = targetRotation; 
+            }
+        }
+        
+    }
+
+    public void MoveInput(InputAction.CallbackContext context)
+    {
+        moveVector = new Vector3(context.ReadValue<Vector2>().x,0,context.ReadValue<Vector2>().y);
+        horizontalInput = context.ReadValue<Vector2>().x;
+        verticalInput = context.ReadValue<Vector2>().y;
         if (context.started)
         {
-            isStrafing = true;
-            anim.SetTrigger("Strafe"); 
+            moveInput = true;
         }
         if (context.canceled)
         {
-            isStrafing = false;
-            anim.SetTrigger("NotStrafe");
+            moveInput = false;
         }
+
+        
+        
     }
 
-    public void LookorAim(InputAction.CallbackContext context)
+    public void AimInput(InputAction.CallbackContext context)
     {
+        aimVector = new Vector3(context.ReadValue<Vector2>().x,0,context.ReadValue<Vector2>().y);
+        aimHorizontal = context.ReadValue<Vector2>().x;
+        aimVertical = context.ReadValue<Vector2>().y;
         if (context.started)
-            PlayerAimTransform.position = new Vector3(context.ReadValue<Vector2>().x,0,context.ReadValue<Vector2>().y);
+        {
+            aimInput = true;
+            if (moveInput)
+            {   
+                animator.SetTrigger("Strafe");
+                
+            }
+        }
         if (context.canceled)
         {
-            PlayerAimTransform.position = Vector3.zero;
+            aimInput =false;
+            animator.SetTrigger("NotStrafe");
+
         }
+        
     }
-
-    public void ResetScene()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
-    }
-
-
 }
