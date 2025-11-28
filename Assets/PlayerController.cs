@@ -1,10 +1,13 @@
 using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
-
+using UnityEngine.Animations.Rigging;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField]
+    Rig rigLayer_Shooting;
+    
     public float StrafeAngle;
     public float moveSpeed = 5f;
     public float rotationSpeed = 10f; // For smooth rotation, if desired
@@ -31,12 +34,16 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        animator.SetBool("moveInput",moveInput);
+        rigLayer_Shooting.weight = aimVector.magnitude;
         StrafeAngle = Vector3.SignedAngle(aimVector, moveVector, transform.up);
+        animator.SetFloat("StrafeAngle", StrafeAngle);
         HandleMovement();
         if (aimInput&&moveInput)
         {
+            //rigLayer_Shooting.weight = aimVector.magnitude;
             HandleRotation(aimHorizontal,aimVertical);
-            animator.SetFloat("StrafeAngle", StrafeAngle);
+            
             //if (characterController.attachedRigidbody.linearVelocity>)
             
         }
@@ -121,9 +128,9 @@ public class PlayerController : MonoBehaviour
         if (context.started)
         {
             aimInput = true;
+            animator.SetTrigger("Strafe");
             if (moveInput)
             {   
-                animator.SetTrigger("Strafe");
                 
             }
         }
