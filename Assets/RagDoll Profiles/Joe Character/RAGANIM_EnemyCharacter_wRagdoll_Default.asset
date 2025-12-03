@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c17cad0390075940b449099c1f720e8, type: 3}
+  m_Name: RAGANIM_EnemyCharacter_wRagdoll_Default
+  m_EditorClassIdentifier: Hairibar.Ragdoll.Core::Hairibar.Ragdoll.RagdollDefinition
+  _isValid: 1
+  _root:
+    name: mixamorig12:Hips
+  bones:
+  - name: mixamorig12:Hips
+  - name: mixamorig12:LeftUpLeg
+  - name: mixamorig12:LeftLeg
+  - name: mixamorig12:LeftFoot
+  - name: mixamorig12:RightUpLeg
+  - name: mixamorig12:RightLeg
+  - name: mixamorig12:RightFoot
+  - name: mixamorig12:Spine
+  - name: mixamorig12:Spine1
+  - name: mixamorig12:Spine2
+  - name: mixamorig12:LeftShoulder
+  - name: mixamorig12:LeftArm
+  - name: mixamorig12:LeftForeArm
+  - name: mixamorig12:LeftHand
+  - name: mixamorig12:Neck
+  - name: mixamorig12:Head
+  - name: mixamorig12:RightShoulder
+  - name: mixamorig12:RightArm
+  - name: mixamorig12:RightForeArm
+  - name: mixamorig12:RightHand

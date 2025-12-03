@@ -6,6 +6,7 @@ TagManager:
   tags:
   - GunSpawnLocation
   - Bullet
+  - Legs
   layers:
   - Default
   - TransparentFX
