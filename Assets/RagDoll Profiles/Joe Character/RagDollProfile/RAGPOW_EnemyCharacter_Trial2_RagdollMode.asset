@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8cf31d54787812f4595483c5fb92c83b, type: 3}
-  m_Name: RAGPOW_EnemyCharacter_Trial2_Default
+  m_Name: RAGPOW_EnemyCharacter_Trial2_RagdollMode
   m_EditorClassIdentifier: Hairibar.Ragdoll.Core::Hairibar.Ragdoll.RagdollPowerProfile
   definition: {fileID: 11400000, guid: 9f77c87d4be1b7081a954a1d69964c45, type: 2}
   _isValid: 1
@@ -36,4 +36,4 @@ MonoBehaviour:
     - name: mixamorig12:RightArm
     - name: mixamorig12:RightForeArm
     - name: mixamorig12:RightHand
-    values: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
+    values: 0100000001000000000000000000000001000000000000000000000001000000010000000100000002000000020000000200000001000000010000000100000002000000020000000200000001000000

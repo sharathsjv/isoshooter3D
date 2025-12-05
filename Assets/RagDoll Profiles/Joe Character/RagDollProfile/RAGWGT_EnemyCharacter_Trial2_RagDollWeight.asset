@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8cf31d54787812f4595483c5fb92c83b, type: 3}
-  m_Name: RAGPOW_EnemyCharacter_Trial2_RagdollMode
-  m_EditorClassIdentifier: Hairibar.Ragdoll.Core::Hairibar.Ragdoll.RagdollPowerProfile
+  m_Script: {fileID: 11500000, guid: 7c71060248e3110419d61ceee34cceba, type: 3}
+  m_Name: RAGWGT_EnemyCharacter_Trial2_RagDollWeight
+  m_EditorClassIdentifier: Hairibar.Ragdoll.Core::Hairibar.Ragdoll.RagdollWeightDistribution
   definition: {fileID: 11400000, guid: 9f77c87d4be1b7081a954a1d69964c45, type: 2}
   _isValid: 1
-  settings:
+  factors:
     keys:
     - name: mixamorig12:Hips
     - name: mixamorig12:LeftUpLeg
@@ -36,4 +36,24 @@ MonoBehaviour:
     - name: mixamorig12:RightArm
     - name: mixamorig12:RightForeArm
     - name: mixamorig12:RightHand
-    values: 0100000000000000000000000000000000000000000000000000000001000000010000000100000002000000020000000200000001000000010000000100000001000000010000000100000001000000
+    values:
+    - 1
+    - 0.897
+    - 0.773
+    - 0.631
+    - 1
+    - 0.897
+    - 0.773
+    - 0.897
+    - 0.773
+    - 0.631
+    - 0.722
+    - 0.58
+    - 0.44
+    - 0.321
+    - 0.984
+    - 0.85
+    - 0.722
+    - 0.58
+    - 0.44
+    - 0.321

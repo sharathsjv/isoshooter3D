@@ -8,13 +8,23 @@ using UnityEngine.AI;
 using UnityEngine.Animations.Rigging;
 using Hairibar.EngineExtensions;
 using Hairibar.Ragdoll.Animation;
+using Hairibar.Ragdoll;
 
 public class EnemyCharacterBrain : MonoBehaviour
 {
     [SerializeField]
-    Animator EnemyLocomotionAnimator;
+    GameObject FollowTargetForRagdoll;
+    [SerializeField]
+    Animator EnemyLocomotionAnimator,EnemyStateMachine;
     [SerializeField]
     RagdollAnimator ragdollAnimator;
+    [SerializeField]
+    RagdollPowerProfile ragdollPowerProfile;
+    [SerializeField]
+    RagdollSettings currentRagdollSettings;
+    [SerializeField]
+    Rig AimingRigLayer, LegsRigLayer;
+
     [SerializeField]
     AnimatorController EnemyLocomotionAnimatorController,NullAnimatorController;
     public GameObject NavMeshTarget,RotationTarget;
@@ -33,8 +43,7 @@ public class EnemyCharacterBrain : MonoBehaviour
     public int currentNodePointer;
     [SerializeField]
     public bool Alerted;
-    [SerializeField]
-    Rig AimingRigLayer;
+    
 
     //RagDoll Stuff
     [SerializeField]
@@ -50,10 +59,11 @@ public class EnemyCharacterBrain : MonoBehaviour
     void Awake()
     {
         ragdollAnimator = GetComponentInChildren<RagdollAnimator>();
+        EnemyStateMachine = GetComponent<Animator>();
+        currentRagdollSettings = GetComponentInChildren<RagdollSettings>();
     }
     void Start()
     {
-        
         navMeshAgent = GetComponent<NavMeshAgent>();
         
     }
@@ -106,12 +116,16 @@ public class EnemyCharacterBrain : MonoBehaviour
         }
     }
 
-    void EnableRagdoll(bool onoroff)
+    public void EnableRagdoll(bool onoroff)
     {
         ragdollSwitched = onoroff;
-        ragdollAnimator.MasterAlpha = 0.3f;
-        ragdollAnimator.MasterDampingRatio = 0.3f;
+        ragdollAnimator.MasterAlpha = 0f;
+        ragdollAnimator.MasterDampingRatio = 0f;
         ragdollAnimator.forceTargetPose = false;
+        ragdollAnimator.RagdollSettings.PowerProfile = ragdollPowerProfile;
+        FollowTargetForRagdoll.SetActive(true);
+        EnemyLocomotionAnimator.SetTrigger("ProceduralSwitch");
+        LegsRigLayer.weight = 1;
     }
 
 

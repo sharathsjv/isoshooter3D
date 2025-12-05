@@ -7,6 +7,7 @@ TagManager:
   - GunSpawnLocation
   - Bullet
   - Legs
+  - Enemy
   layers:
   - Default
   - TransparentFX
