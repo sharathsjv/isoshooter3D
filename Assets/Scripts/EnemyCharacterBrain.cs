@@ -9,6 +9,7 @@ using UnityEngine.Animations.Rigging;
 using Hairibar.EngineExtensions;
 using Hairibar.Ragdoll.Animation;
 using Hairibar.Ragdoll;
+using Unity.VisualScripting;
 
 public class EnemyCharacterBrain : MonoBehaviour
 {
@@ -24,6 +25,8 @@ public class EnemyCharacterBrain : MonoBehaviour
     RagdollSettings currentRagdollSettings;
     [SerializeField]
     Rig AimingRigLayer, LegsRigLayer;
+
+
 
     [SerializeField]
     AnimatorController EnemyLocomotionAnimatorController,NullAnimatorController;
@@ -43,11 +46,15 @@ public class EnemyCharacterBrain : MonoBehaviour
     public int currentNodePointer;
     [SerializeField]
     public bool Alerted;
+    [SerializeField]
+    GameObject LegObject, RightObject, LegMidObject, RightMidObject;
     
 
     //RagDoll Stuff
     [SerializeField]
     List<Rigidbody> rigidbodies;
+    [SerializeField]
+    public Rigidbody hipsrigidbody;
     [SerializeField]
     GameObject armature;
 
@@ -61,6 +68,10 @@ public class EnemyCharacterBrain : MonoBehaviour
         ragdollAnimator = GetComponentInChildren<RagdollAnimator>();
         EnemyStateMachine = GetComponent<Animator>();
         currentRagdollSettings = GetComponentInChildren<RagdollSettings>();
+        foreach(var a in GetComponentsInChildren<Rigidbody>())
+        {
+            rigidbodies.Add(a);
+        }
     }
     void Start()
     {
@@ -126,6 +137,22 @@ public class EnemyCharacterBrain : MonoBehaviour
         FollowTargetForRagdoll.SetActive(true);
         EnemyLocomotionAnimator.SetTrigger("ProceduralSwitch");
         LegsRigLayer.weight = 1;
+        if (hipsrigidbody == null)
+        {
+            foreach(var a in rigidbodies)
+            {
+                if (a.tag == "Hips")
+                {
+                    hipsrigidbody = a;
+                }
+            }
+            hipsrigidbody.AddForce(100*-transform.forward,ForceMode.Force);
+        }
+        else
+        {
+            hipsrigidbody.AddForce(100*-transform.forward,ForceMode.Force);
+        }
+        
     }
 
 

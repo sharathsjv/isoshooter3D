@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Legs
   - Enemy
+  - Hips
   layers:
   - Default
   - TransparentFX

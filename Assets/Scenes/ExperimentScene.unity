@@ -345,7 +345,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42813077}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -390,26 +390,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -90
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 20
   m_HighAngularXLimit:
     limit: 10
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 20
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 60
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 12
   m_AngularZLimit:
     limit: 30
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 6
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -471,7 +471,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42813077}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -486,7 +486,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -663,7 +663,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156688990}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -708,26 +708,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 18.976274
   m_HighAngularXLimit:
     limit: 94.88137
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 18.976274
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 5
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 1
   m_AngularZLimit:
     limit: 10
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 2
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -789,7 +789,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156688990}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -804,7 +804,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1124,6 +1124,37 @@ MonoBehaviour:
     m_HintWeight: 1
     m_MaintainTargetPositionOffset: 0
     m_MaintainTargetRotationOffset: 0
+--- !u!1 &308210290
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 308210291}
+  m_Layer: 0
+  m_Name: Right_Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &308210291
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308210290}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 2.910383e-11, w: 1}
+  m_LocalPosition: {x: 0.123, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868677559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &330585543
 GameObject:
   m_ObjectHideFlags: 0
@@ -1556,7 +1587,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419893918}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1599,26 +1630,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -2.0140197
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 19.322752
   m_HighAngularXLimit:
     limit: 94.59974
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 19.322752
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 20
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 4
   m_AngularZLimit:
     limit: 15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 3
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -1680,7 +1711,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419893918}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1695,7 +1726,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -1800,6 +1831,37 @@ MonoBehaviour:
   SpawnPosition: {fileID: 0}
   currentTime: 0
   TotalTime: 5
+--- !u!1 &494474492
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 494474493}
+  m_Layer: 0
+  m_Name: RightMid_Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &494474493
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 494474492}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 2.910383e-11, w: 1}
+  m_LocalPosition: {x: 0.122999996, y: 0, z: 0.269}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868677559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &514039628 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -6803169544883306252, guid: a2afcb48d5e113ea0abfffae5b59d0d1, type: 3}
@@ -1847,7 +1909,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534101020}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -1892,26 +1954,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -20
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 18
   m_HighAngularXLimit:
     limit: 70
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 18
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 30
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 6
   m_AngularZLimit:
     limit: 7.8233852
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 1.5646771
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -1973,7 +2035,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534101020}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1988,7 +2050,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2127,7 +2189,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565759921}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2170,26 +2232,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -2.0140197
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 19.322752
   m_HighAngularXLimit:
     limit: 94.59974
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 19.322752
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 20
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 4
   m_AngularZLimit:
     limit: 15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 3
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -2251,7 +2313,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565759921}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2266,7 +2328,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -2341,12 +2403,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   RightLegIKTransform: {fileID: 1701353374}
   LeftLegIKTransform: {fileID: 1524089094}
-  hipTransform: {fileID: 1868972230}
-  animationTriggerDistance: 0.01
-  animationStoppingDistance: 1.02
+  RightLegMidTransform: {fileID: 494474492}
+  LeftLegMidTransform: {fileID: 1303555945}
+  RightLegHipTransform: {fileID: 308210290}
+  LeftLegHipTransform: {fileID: 1232878172}
+  animationTriggerDistance: 0.94
+  animationStoppingDistance: 0.7
   legSpeed: 2
   currentTime: 0
-  waitTime: 4
+  waitTime: 0.5
+  enemyCharacterBrain: {fileID: 1140663361}
 --- !u!1 &583250223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2389,7 +2455,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583250223}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -2434,26 +2500,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 24
   m_HighAngularXLimit:
     limit: 120
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 24
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 30
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 6
   m_AngularZLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -2515,7 +2581,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583250223}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2530,7 +2596,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -4206,6 +4272,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5723906890552044989, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
   m_PrefabInstance: {fileID: 1870889910}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1140663361 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 6081474526009232872, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+  m_PrefabInstance: {fileID: 1870889910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4fe90a9e22b6ee5bd649ac72378814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &1148455849
 GameObject:
   m_ObjectHideFlags: 0
@@ -4248,6 +4325,37 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.Rig
+--- !u!1 &1232878172
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1232878173}
+  m_Layer: 0
+  m_Name: Left_Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1232878173
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1232878172}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 2.910383e-11, w: 1}
+  m_LocalPosition: {x: -0.277, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868677559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1244631404
 GameObject:
   m_ObjectHideFlags: 0
@@ -4476,7 +4584,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265386302}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -4521,26 +4629,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -20
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 18
   m_HighAngularXLimit:
     limit: 70
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 18
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 30
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 6
   m_AngularZLimit:
     limit: 7.8233852
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 1.5646771
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -4602,7 +4710,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265386302}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4617,10 +4725,41 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &1303555945
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1303555946}
+  m_Layer: 0
+  m_Name: LeftMId_Target
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1303555946
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1303555945}
+  serializedVersion: 2
+  m_LocalRotation: {x: -0, y: -0, z: 2.910383e-11, w: 1}
+  m_LocalPosition: {x: -0.277, y: 0, z: 0.269}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1868677559}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1306916265
 GameObject:
   m_ObjectHideFlags: 0
@@ -5245,7 +5384,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408226003}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5290,26 +5429,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 6
   m_HighAngularXLimit:
     limit: 15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 6
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 3
   m_AngularZLimit:
     limit: 15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 3
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -5371,7 +5510,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408226003}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5386,7 +5525,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -5463,7 +5602,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498150518}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5508,26 +5647,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -90
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 18
   m_HighAngularXLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 18
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 10
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 2
   m_AngularZLimit:
     limit: 10
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 2
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -5589,7 +5728,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498150518}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5819,7 +5958,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577480031}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -5864,26 +6003,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -17.562561
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 15.6247015
   m_HighAngularXLimit:
     limit: 60.56094
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 15.6247015
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 23.773922
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 4.7547846
   m_AngularZLimit:
     limit: 25
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 5
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -5945,7 +6084,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577480031}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5960,7 +6099,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -6008,7 +6147,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584541997}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6053,26 +6192,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -5
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 3.9590714
   m_HighAngularXLimit:
     limit: 14.795358
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 3.9590714
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 5
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 1
   m_AngularZLimit:
     limit: 10
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 2
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -6134,7 +6273,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584541997}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6149,7 +6288,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -6204,7 +6343,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605441848}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6247,26 +6386,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -25
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 10
   m_HighAngularXLimit:
     limit: 25
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 10
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 20
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 4
   m_AngularZLimit:
     limit: 20
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 4
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -6328,7 +6467,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605441848}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6389,7 +6528,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627896069}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6434,26 +6573,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -5
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 4.8821797
   m_HighAngularXLimit:
     limit: 19.410898
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 4.8821797
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 5
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 1
   m_AngularZLimit:
     limit: 10
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 2
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -6515,7 +6654,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627896069}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6530,7 +6669,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -6696,7 +6835,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704457236}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6741,26 +6880,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 24
   m_HighAngularXLimit:
     limit: 120
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 24
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 30
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 6
   m_AngularZLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -6822,7 +6961,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704457236}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6837,7 +6976,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -6882,7 +7021,7 @@ BoxCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731308764}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -6925,26 +7064,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -25
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 10
   m_HighAngularXLimit:
     limit: 25
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 10
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 20
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 4
   m_AngularZLimit:
     limit: 20
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 4
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -7006,7 +7145,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731308764}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7166,7 +7305,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832283022}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7211,26 +7350,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -90
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 18
   m_HighAngularXLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 18
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 10
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 2
   m_AngularZLimit:
     limit: 10
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 2
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -7292,7 +7431,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832283022}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7530,7 +7669,7 @@ SphereCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855991681}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7573,26 +7712,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -30
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 11
   m_HighAngularXLimit:
     limit: 25
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 11
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 3
   m_AngularZLimit:
     limit: 20
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 4
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -7654,7 +7793,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855991681}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7669,7 +7808,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -7755,6 +7894,10 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 1232878173}
+  - {fileID: 1303555946}
+  - {fileID: 308210291}
+  - {fileID: 494474493}
   - {fileID: 1868972231}
   m_Father: {fileID: 1140663358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -7851,23 +7994,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2d22a8d61b2abd841a0e4428ba6be4dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Hairibar.Ragdoll.Core::Hairibar.Ragdoll.RagdollSettings
-  limitBounciness: 0.3
+  limitBounciness: 1
   limitContactDistanceFactor: 0.2
   limitSpring: 1000
-  limitSpringDamping: 80
+  limitSpringDamping: 193.7
   enableJointPreProcessing: 0
   enableJointProjection: 1
   minJointProjectionDistance: 0.5
   minJointProjectionAngle: 10
   useGravity: 1
-  totalMass: 50
+  totalMass: 1
   drag: 0
   angularDrag: 0.05
-  material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   interpolation: 1
   collisionDetectionMode: 0
   solverIterations: 20
-  _powerProfile: {fileID: 11400000, guid: aa41c16a627f2fdfeab320518ec9621c, type: 2}
+  _powerProfile: {fileID: 11400000, guid: 9c4fcbea0b820852ba54f393e141adca, type: 2}
   _weightDistribution: {fileID: 11400000, guid: 11714dd79b6274dbc83b69386400bb5c, type: 2}
 --- !u!1 &1868972230
 GameObject:
@@ -7883,7 +8026,7 @@ GameObject:
   - component: {fileID: 1868972233}
   m_Layer: 0
   m_Name: mixamorig12:Hips
-  m_TagString: Untagged
+  m_TagString: Hips
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -7913,7 +8056,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868972230}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -7958,26 +8101,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 0
   m_HighAngularXLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 0
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 0
   m_AngularZLimit:
     limit: 0
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 0
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -8039,7 +8182,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868972230}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8054,7 +8197,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -8088,7 +8231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5723906890552044989, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5723906890552044989, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       propertyPath: m_LocalPosition.z
@@ -8123,6 +8266,18 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6081474526009232872, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: LegObject
+      value: 
+      objectReference: {fileID: 1232878172}
+    - target: {fileID: 6081474526009232872, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: RightObject
+      value: 
+      objectReference: {fileID: 308210290}
+    - target: {fileID: 6081474526009232872, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: LegMidObject
+      value: 
+      objectReference: {fileID: 1303555945}
+    - target: {fileID: 6081474526009232872, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       propertyPath: LegsRigLayer
       value: 
       objectReference: {fileID: 1160146859}
@@ -8130,6 +8285,10 @@ PrefabInstance:
       propertyPath: NavMeshTarget
       value: 
       objectReference: {fileID: 1903998920}
+    - target: {fileID: 6081474526009232872, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: RightMidObject
+      value: 
+      objectReference: {fileID: 494474492}
     - target: {fileID: 6081474526009232872, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       propertyPath: RotationTarget
       value: 
@@ -8286,7 +8445,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913148369}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -8310,7 +8469,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913148369}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8325,7 +8484,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
@@ -8358,26 +8517,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -90
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 20
   m_HighAngularXLimit:
     limit: 10
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 20
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 60
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 12
   m_AngularZLimit:
     limit: 30
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 6
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -9051,7 +9210,7 @@ CapsuleCollider:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143309737}
-  m_Material: {fileID: 13400000, guid: 36fa831e16544c442a0ff1d8cc339b0a, type: 2}
+  m_Material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
   m_IncludeLayers:
     serializedVersion: 2
     m_Bits: 0
@@ -9096,26 +9255,26 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_LowAngularXLimit:
     limit: -15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 6
   m_HighAngularXLimit:
     limit: 15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 6
   m_AngularYZLimitSpring:
-    spring: 2499.9998
-    damper: 199.99998
+    spring: 49.999992
+    damper: 9.6849985
   m_AngularYLimit:
     limit: 15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 3
   m_AngularZLimit:
     limit: 15
-    bounciness: 0.3
+    bounciness: 1
     contactDistance: 3
   m_TargetPosition: {x: 0, y: 0, z: 0}
   m_TargetVelocity: {x: 0, y: 0, z: 0}
@@ -9177,7 +9336,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143309737}
   serializedVersion: 5
-  m_Mass: 2.4999998
+  m_Mass: 0.049999993
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9192,7 +9351,7 @@ Rigidbody:
   m_ImplicitCom: 1
   m_ImplicitTensor: 1
   m_UseGravity: 1
-  m_IsKinematic: 1
+  m_IsKinematic: 0
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
