@@ -134,25 +134,34 @@ public class EnemyCharacterBrain : MonoBehaviour
         ragdollAnimator.MasterDampingRatio = 0f;
         ragdollAnimator.forceTargetPose = false;
         ragdollAnimator.RagdollSettings.PowerProfile = ragdollPowerProfile;
-        FollowTargetForRagdoll.SetActive(true);
+        //FollowTargetForRagdoll.SetActive(true);
         EnemyLocomotionAnimator.SetTrigger("ProceduralSwitch");
-        LegsRigLayer.weight = 1;
-        if (hipsrigidbody == null)
-        {
-            foreach(var a in rigidbodies)
-            {
-                if (a.tag == "Hips")
-                {
-                    hipsrigidbody = a;
-                }
-            }
-            hipsrigidbody.AddForce(100*-transform.forward,ForceMode.Force);
-        }
-        else
-        {
-            hipsrigidbody.AddForce(100*-transform.forward,ForceMode.Force);
-        }
+        // if (hipsrigidbody == null)
+        // {
+        //     foreach(var a in rigidbodies)
+        //     {
+        //         if (a.tag == "Hips")
+        //         {
+        //             hipsrigidbody = a;
+        //         }
+        //     }
+        //     // hipsrigidbody.AddForce(100*-transform.forward,ForceMode.Force);
+        //     AddForToRigidBodies();
+        // }
+        // else
+        // {
+        //     // hipsrigidbody.AddForce(100*-transform.forward,ForceMode.Force);
+        //     AddForToRigidBodies();
+        // }
         
+    }
+
+    public void AddForToRigidBodies ()
+    {
+        foreach(var a in rigidbodies)
+        {
+            a.AddForce(10*-transform.forward,ForceMode.Force);
+        }
     }
 
 

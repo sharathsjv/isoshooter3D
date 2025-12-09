@@ -33,8 +33,8 @@ public class LegStateAnimation : StateMachineBehaviour
             TargetTransform = followTargetForLegs.LeftLegHipTransform;
             MidTargetTransform = followTargetForLegs.RightLegMidTransform;
 
-            MidTargetTransform.transform.position += new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z);
-            TargetTransform.transform.position += new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z);
+            MidTargetTransform.transform.position = new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x-0.2f,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z-0.1f);
+            TargetTransform.transform.position = new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x-0.2f,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z);
         }
         else
         {
@@ -43,8 +43,8 @@ public class LegStateAnimation : StateMachineBehaviour
             TargetTransform = followTargetForLegs.RightLegHipTransform;
             MidTargetTransform = followTargetForLegs.LeftLegMidTransform;
 
-            MidTargetTransform.transform.position += new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z);
-            TargetTransform.transform.position += new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z);        
+            MidTargetTransform.transform.position = new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x+0.2f,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z-0.1f);
+            TargetTransform.transform.position = new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x+0.2f,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z);        
         }
         followTargetForLegs.currentTime=0;
 
@@ -66,17 +66,17 @@ public class LegStateAnimation : StateMachineBehaviour
         //     animator.SetTrigger("LegSwitch");
         // }
 
-        if (followTargetForLegs.currentTime < followTargetForLegs.waitTime)
-        {
-            TargetLeg.transform.position = Vector3.Lerp(TargetLeg.transform.position, TargetTransform.transform.position, followTargetForLegs.legSpeed*Time.deltaTime);
-            MidTargetLeg.transform.position = Vector3.Lerp(MidTargetLeg.transform.position, MidTargetTransform.transform.position, followTargetForLegs.legSpeed*Time.deltaTime);
-        }
+        // if (followTargetForLegs.currentTime < followTargetForLegs.waitTime)
+        // {
+        //     TargetLeg.transform.position = Vector3.Lerp(TargetLeg.transform.position, TargetTransform.transform.position, followTargetForLegs.legSpeed*Time.deltaTime);
+        //     MidTargetLeg.transform.position = Vector3.Lerp(MidTargetLeg.transform.position, MidTargetTransform.transform.position, followTargetForLegs.legSpeed*Time.deltaTime);
+        // }
 
         
-        if (followTargetForLegs.currentTime>followTargetForLegs.waitTime)
-        {
-            animator.SetTrigger("LegSwitch");
-        }
+        // if (followTargetForLegs.currentTime>followTargetForLegs.waitTime)
+        // {
+        //     animator.SetTrigger("LegSwitch");
+        // }
         
         
     }
@@ -84,7 +84,8 @@ public class LegStateAnimation : StateMachineBehaviour
     // OnStateExit is called when a transition ends and the state machine finishes evaluating this state
     override public void OnStateExit(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-       followTargetForLegs.enemyCharacterBrain.hipsrigidbody.AddForce(100*-followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.forward,ForceMode.Force);
+    //    followTargetForLegs.enemyCharacterBrain.hipsrigidbody.AddForce(100*-followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.forward,ForceMode.Force);
+            followTargetForLegs.enemyCharacterBrain.AddForToRigidBodies();
     }
 
     // OnStateMove is called right after Animator.OnAnimatorMove()
@@ -94,8 +95,12 @@ public class LegStateAnimation : StateMachineBehaviour
     //}
 
     // OnStateIK is called right after Animator.OnAnimatorIK()
-    //override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
-    //{
-    //    // Implement code that sets up animation IK (inverse kinematics)
-    //}
+    // override public void OnStateIK(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
+    // {
+    //     if (LegType == legType.LeftLegIKTransform)
+    //     {    
+    //         animator.SetIKPosition(AvatarIKGoal.LeftFoot,TargetTransform.transform.position);
+    //         animator.SetIKPosition(AvatarIKGoal.RightFoot, MidTargetTransform.transform.position);
+    //     }
+    // }
 }

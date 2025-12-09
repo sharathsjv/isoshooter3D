@@ -124,37 +124,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 366175167995203695, guid: a2afcb48d5e113ea0abfffae5b59d0d1, type: 3}
   m_PrefabInstance: {fileID: 624715922}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1528718
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1528719}
-  m_Layer: 0
-  m_Name: RigLayer_Transposer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1528719
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1528718}
-  serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 2050027444}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &24936280
 GameObject:
   m_ObjectHideFlags: 0
@@ -303,6 +272,62 @@ MonoBehaviour:
   SpawnPosition: {fileID: 0}
   currentTime: 0
   TotalTime: 5
+--- !u!1 &36505760
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 36505761}
+  - component: {fileID: 36505762}
+  m_Layer: 0
+  m_Name: Lefthand_IK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &36505761
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36505760}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3.175, z: 0.479}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 81869618}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &36505762
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 36505760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: aeda7bfbf984f2a4da5ab4b8967b115d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.TwoBoneIKConstraint
+  m_Weight: 1
+  m_Data:
+    m_Root: {fileID: 842548727}
+    m_Mid: {fileID: 1457222985}
+    m_Tip: {fileID: 1970952809}
+    m_Target: {fileID: 1158589391}
+    m_Hint: {fileID: 0}
+    m_TargetPositionWeight: 1
+    m_TargetRotationWeight: 1
+    m_HintWeight: 1
+    m_MaintainTargetPositionOffset: 0
+    m_MaintainTargetRotationOffset: 0
 --- !u!1 &42813077
 GameObject:
   m_ObjectHideFlags: 0
@@ -390,8 +415,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -90
     bounciness: 1
@@ -401,8 +426,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 20
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 60
     bounciness: 1
@@ -471,7 +496,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 42813077}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -490,6 +515,64 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!1 &81869617
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 81869618}
+  - component: {fileID: 81869619}
+  m_Layer: 0
+  m_Name: RigLayer_FreeHand
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &81869618
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81869617}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 36505761}
+  m_Father: {fileID: 2050027444}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &81869619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 81869617}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.Rig
+  m_Weight: 1
+  m_Effectors: []
+--- !u!114 &125705532 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5666638368259748840, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+  m_PrefabInstance: {fileID: 1870889910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.Rig
 --- !u!1 &145551456
 GameObject:
   m_ObjectHideFlags: 0
@@ -708,8 +791,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: 0
     bounciness: 1
@@ -719,8 +802,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 18.976274
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 5
     bounciness: 1
@@ -789,7 +872,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 156688990}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1630,8 +1713,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -2.0140197
     bounciness: 1
@@ -1641,8 +1724,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 19.322752
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 20
     bounciness: 1
@@ -1711,7 +1794,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 419893918}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -1954,8 +2037,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -20
     bounciness: 1
@@ -1965,8 +2048,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 18
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 30
     bounciness: 1
@@ -2035,7 +2118,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 534101020}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2232,8 +2315,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -2.0140197
     bounciness: 1
@@ -2243,8 +2326,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 19.322752
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 20
     bounciness: 1
@@ -2313,7 +2396,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 565759921}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -2343,6 +2426,7 @@ GameObject:
   - component: {fileID: 576716852}
   - component: {fileID: 576716853}
   - component: {fileID: 576716854}
+  - component: {fileID: 576716855}
   m_Layer: 0
   m_Name: Enemy_Trial2Legs
   m_TagString: Untagged
@@ -2358,14 +2442,14 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 576716851}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.087, y: 0, z: 0.411}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1524089095}
   - {fileID: 1701353375}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 1868677559}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &576716853
 Animator:
@@ -2413,6 +2497,18 @@ MonoBehaviour:
   currentTime: 0
   waitTime: 0.5
   enemyCharacterBrain: {fileID: 1140663361}
+--- !u!114 &576716855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 576716851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.RigTransform
 --- !u!1 &583250223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2500,8 +2596,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: 0
     bounciness: 1
@@ -2511,8 +2607,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 24
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 30
     bounciness: 1
@@ -2581,7 +2677,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 583250223}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -4054,6 +4150,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &842548727 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1932973708985811994, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+  m_PrefabInstance: {fileID: 1870889910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &873822522 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -1812909498023395591, guid: a2afcb48d5e113ea0abfffae5b59d0d1, type: 3}
@@ -4313,6 +4414,37 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 624715923}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1158589390
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1158589391}
+  m_Layer: 0
+  m_Name: GrabIK
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1158589391
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1158589390}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 3, z: 3.7}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1140663358}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &1160146859 stripped
 MonoBehaviour:
@@ -4629,8 +4761,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -20
     bounciness: 1
@@ -4640,8 +4772,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 18
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 30
     bounciness: 1
@@ -4710,7 +4842,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1265386302}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5429,8 +5561,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -15
     bounciness: 1
@@ -5440,8 +5572,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 6
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 15
     bounciness: 1
@@ -5510,7 +5642,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1408226003}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5560,6 +5692,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &1457222985 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6412472373838119966, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+  m_PrefabInstance: {fileID: 1870889910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1498150518
 GameObject:
   m_ObjectHideFlags: 0
@@ -5647,8 +5784,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -90
     bounciness: 1
@@ -5658,8 +5795,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 18
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 10
     bounciness: 1
@@ -5728,7 +5865,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1498150518}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -5857,6 +5994,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1524089095}
+  - component: {fileID: 1524089096}
   m_Layer: 0
   m_Name: LeftLegTarget
   m_TagString: Untagged
@@ -5879,6 +6017,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 576716852}
   m_LocalEulerAnglesHint: {x: -61.303, y: 0, z: 180}
+--- !u!114 &1524089096
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1524089094}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.RigTransform
 --- !u!1 &1550145343
 GameObject:
   m_ObjectHideFlags: 0
@@ -6003,8 +6153,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -17.562561
     bounciness: 1
@@ -6014,8 +6164,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 15.6247015
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 23.773922
     bounciness: 1
@@ -6084,7 +6234,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1577480031}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6192,8 +6342,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -5
     bounciness: 1
@@ -6203,8 +6353,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 3.9590714
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 5
     bounciness: 1
@@ -6273,7 +6423,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1584541997}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6386,8 +6536,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -25
     bounciness: 1
@@ -6397,8 +6547,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 10
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 20
     bounciness: 1
@@ -6467,7 +6617,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1605441848}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6573,8 +6723,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -5
     bounciness: 1
@@ -6584,8 +6734,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 4.8821797
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 5
     bounciness: 1
@@ -6654,7 +6804,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1627896069}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -6771,6 +6921,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1701353375}
+  - component: {fileID: 1701353376}
   m_Layer: 0
   m_Name: RightLegTarget
   m_TagString: Untagged
@@ -6793,6 +6944,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 576716852}
   m_LocalEulerAnglesHint: {x: -61.303, y: 0, z: 180}
+--- !u!114 &1701353376
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1701353374}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48948dfe9d76b07488dacd46a7955fa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.RigTransform
 --- !u!1 &1704457236
 GameObject:
   m_ObjectHideFlags: 0
@@ -6880,8 +7043,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: 0
     bounciness: 1
@@ -6891,8 +7054,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 24
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 30
     bounciness: 1
@@ -6961,7 +7124,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1704457236}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7064,8 +7227,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -25
     bounciness: 1
@@ -7075,8 +7238,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 10
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 20
     bounciness: 1
@@ -7145,7 +7308,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1731308764}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7350,8 +7513,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -90
     bounciness: 1
@@ -7361,8 +7524,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 18
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 10
     bounciness: 1
@@ -7431,7 +7594,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1832283022}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7712,8 +7875,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -30
     bounciness: 1
@@ -7723,8 +7886,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 11
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 15
     bounciness: 1
@@ -7793,7 +7956,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1855991681}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -7894,6 +8057,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 576716852}
   - {fileID: 1232878173}
   - {fileID: 1303555946}
   - {fileID: 308210291}
@@ -8003,7 +8167,7 @@ MonoBehaviour:
   minJointProjectionDistance: 0.5
   minJointProjectionAngle: 10
   useGravity: 1
-  totalMass: 1
+  totalMass: 0.06
   drag: 0
   angularDrag: 0.05
   material: {fileID: 13400000, guid: 994224df48e0a1f859e9e1adeaf49052, type: 2}
@@ -8101,8 +8265,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: 0
     bounciness: 1
@@ -8112,8 +8276,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 0
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 0
     bounciness: 1
@@ -8182,7 +8346,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1868972230}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8209,6 +8373,34 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 894214842317584765, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_RigLayers.Array.size
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 894214842317584765, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_RigLayers.Array.data[0].m_Rig
+      value: 
+      objectReference: {fileID: 1881552197}
+    - target: {fileID: 894214842317584765, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_RigLayers.Array.data[1].m_Rig
+      value: 
+      objectReference: {fileID: 2007073725}
+    - target: {fileID: 894214842317584765, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_RigLayers.Array.data[2].m_Rig
+      value: 
+      objectReference: {fileID: 125705532}
+    - target: {fileID: 894214842317584765, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_RigLayers.Array.data[3].m_Rig
+      value: 
+      objectReference: {fileID: 81869619}
+    - target: {fileID: 894214842317584765, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_RigLayers.Array.data[4].m_Rig
+      value: 
+      objectReference: {fileID: 1160146859}
+    - target: {fileID: 894214842317584765, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_RigLayers.Array.data[4].m_Active
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4660911974950629079, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       propertyPath: m_Name
       value: Target
@@ -8294,6 +8486,10 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 810566513}
     - target: {fileID: 6081474526009232872, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: switchToRagDoll
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6081474526009232872, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       propertyPath: ragdollPowerProfile
       value: 
       objectReference: {fileID: 11400000, guid: 9c4fcbea0b820852ba54f393e141adca, type: 2}
@@ -8317,6 +8513,18 @@ PrefabInstance:
       propertyPath: m_Weight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8436521505894843794, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 8c8cb6f9a4010871f8980b0bad15a0e0, type: 3}
+    - target: {fileID: 8436521505894843794, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_WarningMessage
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8436521505894843794, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8688029608503711119, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       propertyPath: m_Weight
       value: 1
@@ -8325,6 +8533,14 @@ PrefabInstance:
       propertyPath: m_Data.m_Target
       value: 
       objectReference: {fileID: 1524089095}
+    - target: {fileID: 8688029608503711119, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_Data.m_MaintainTargetPositionOffset
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8688029608503711119, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_Data.m_MaintainTargetRotationOffset
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8814846130594839605, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       propertyPath: m_Size.x
       value: 2.7846618
@@ -8355,9 +8571,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5723906890552044989, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       insertIndex: 0
       addedObject: {fileID: 1868677559}
+    - targetCorrespondingSourceObject: {fileID: 5723906890552044989, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1158589391}
     - targetCorrespondingSourceObject: {fileID: 5468832382901269613, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       insertIndex: 10
-      addedObject: {fileID: 1528719}
+      addedObject: {fileID: 81869618}
     - targetCorrespondingSourceObject: {fileID: 9167412293035172591, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 292675833}
@@ -8371,7 +8590,21 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 4660911974950629079, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       insertIndex: -1
       addedObject: {fileID: 2050027447}
+    - targetCorrespondingSourceObject: {fileID: 4660911974950629079, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2050027452}
   m_SourcePrefab: {fileID: 100100000, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+--- !u!114 &1881552197 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8397047873341414216, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+  m_PrefabInstance: {fileID: 1870889910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.Rig
 --- !u!1 &1903998920
 GameObject:
   m_ObjectHideFlags: 0
@@ -8469,7 +8702,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1913148369}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -8517,8 +8750,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -90
     bounciness: 1
@@ -8528,8 +8761,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 20
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 60
     bounciness: 1
@@ -8768,6 +9001,11 @@ Mesh:
       - serializedVersion: 1
         m_IndexStart: 0
         m_IndexCount: 0
+--- !u!4 &1970952809 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 1583397945287187018, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+  m_PrefabInstance: {fileID: 1870889910}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1986465992
 GameObject:
   m_ObjectHideFlags: 0
@@ -8857,6 +9095,17 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1986465992}
   m_Mesh: {fileID: 10206, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &2007073725 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5563720487562223824, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+  m_PrefabInstance: {fileID: 1870889910}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.Rig
 --- !u!1 &2012759799
 GameObject:
   m_ObjectHideFlags: 0
@@ -8998,6 +9247,25 @@ MonoBehaviour:
   _masterAlpha: 1
   _masterDampingRatio: 1
   _profileTransitionLength: 1
+--- !u!114 &2050027452
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2050027443}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b2d8418b0b9634b1892b0268dd9c2743, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.BoneRenderer
+  boneShape: 1
+  drawBones: 1
+  drawTripods: 0
+  boneSize: 1
+  tripodSize: 1
+  boneColor: {r: 0, g: 0, b: 1, a: 0.5}
+  m_Transforms: []
 --- !u!1 &2056691874
 GameObject:
   m_ObjectHideFlags: 0
@@ -9255,8 +9523,8 @@ ConfigurableJoint:
     bounciness: 0
     contactDistance: 0
   m_AngularXLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_LowAngularXLimit:
     limit: -15
     bounciness: 1
@@ -9266,8 +9534,8 @@ ConfigurableJoint:
     bounciness: 1
     contactDistance: 6
   m_AngularYZLimitSpring:
-    spring: 49.999992
-    damper: 9.6849985
+    spring: 2.9999995
+    damper: 0.5810999
   m_AngularYLimit:
     limit: 15
     bounciness: 1
@@ -9336,7 +9604,7 @@ Rigidbody:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2143309737}
   serializedVersion: 5
-  m_Mass: 0.049999993
+  m_Mass: 0.0029999996
   m_LinearDamping: 0
   m_AngularDamping: 0.05
   m_CenterOfMass: {x: 0, y: 0, z: 0}
@@ -9435,6 +9703,25 @@ PrefabInstance:
       propertyPath: m_Weight
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8436521505894843794, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_Avatar
+      value: 
+      objectReference: {fileID: 9000000, guid: 8c8cb6f9a4010871f8980b0bad15a0e0, type: 3}
+    - target: {fileID: 8436521505894843794, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
+      propertyPath: m_WarningMessage
+      value: "\nBinding warning: Some generic clip(s) animate transforms that are
+        already bound by a Humanoid avatar. These transforms can only be changed
+        by Humanoid clips.\n\tTransform 'mixamorig12:Hips'\n\tTransform 'mixamorig12:RightLeg'\n\tTransform
+        'mixamorig12:LeftHandPinky1'\n\tTransform 'mixamorig12:RightHandRing3'\n\tTransform
+        'mixamorig12:Hips'\n\tTransform 'mixamorig12:LeftHandMiddle1'\n\tTransform
+        'mixamorig12:LeftLeg'\n\tTransform 'mixamorig12:LeftToeBase'\n\tTransform
+        'mixamorig12:LeftFoot'\n\tTransform 'mixamorig12:LeftArm'\n\tand more ...\n\tFrom
+        animation clip 'Joe_Idle'\n\tFrom animation clip 'Joe_Walking'\n\tFrom animation
+        clip 'Joe_RightStrafe'\n\tFrom animation clip 'Joe_LeftStrafe'\n\tFrom animation
+        clip 'Joe_Walking'\n\tFrom animation clip 'Joe_RightStrafe'\n\tFrom animation
+        clip 'Joe_LeftStrafe'\n\tFrom animation clip 'Joe_Walking'\n\tFrom animation
+        clip 'Joe_Alert_Idle'"
+      objectReference: {fileID: 0}
     - target: {fileID: 8688029608503711119, guid: 64b9197b0e6432400be2a4f1880caf1a, type: 3}
       propertyPath: m_Data.m_Target
       value: 
@@ -9458,7 +9745,6 @@ SceneRoots:
   - {fileID: 1759923099}
   - {fileID: 6292298369179310918}
   - {fileID: 1870889910}
-  - {fileID: 576716852}
   - {fileID: 1550145344}
   - {fileID: 1433743912}
   - {fileID: 1392569134}
