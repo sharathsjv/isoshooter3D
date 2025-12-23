@@ -30,8 +30,7 @@ public class LegStateAnimation : StateMachineBehaviour
         {
             TargetLeg = followTargetForLegs.LeftLegIKTransform;
             MidTargetLeg = followTargetForLegs.RightLegIKTransform;
-            TargetTransform = followTargetForLegs.LeftLegHipTransform;
-            MidTargetTransform = followTargetForLegs.RightLegMidTransform;
+            
 
             MidTargetTransform.transform.position = new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x-0.2f,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z-0.1f);
             TargetTransform.transform.position = new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x-0.2f,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z);
@@ -40,8 +39,7 @@ public class LegStateAnimation : StateMachineBehaviour
         {
             TargetLeg = followTargetForLegs.RightLegIKTransform;
             MidTargetLeg = followTargetForLegs.LeftLegIKTransform;
-            TargetTransform = followTargetForLegs.RightLegHipTransform;
-            MidTargetTransform = followTargetForLegs.LeftLegMidTransform;
+            
 
             MidTargetTransform.transform.position = new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x+0.2f,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z-0.1f);
             TargetTransform.transform.position = new Vector3(followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.x+0.2f,0,followTargetForLegs.enemyCharacterBrain.hipsrigidbody.transform.position.z);        

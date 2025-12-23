@@ -9,6 +9,7 @@ TagManager:
   - Legs
   - Enemy
   - Hips
+  - Cover
   layers:
   - Default
   - TransparentFX
@@ -45,6 +46,9 @@ TagManager:
   m_SortingLayers:
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Cover
+    uniqueID: 3996451397
     locked: 0
   m_RenderingLayers:
   - Default

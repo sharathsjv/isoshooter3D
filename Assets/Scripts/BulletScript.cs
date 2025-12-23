@@ -1,5 +1,6 @@
 using System.Numerics;
 using UnityEngine;
+using Vector3 = UnityEngine.Vector3;
 
 public class BulletScript : MonoBehaviour
 {
@@ -11,6 +12,8 @@ public class BulletScript : MonoBehaviour
     GameObject SpawnPosition;
     [SerializeField]
     float currentTime, TotalTime;
+    [SerializeField]
+    GameObject BulletForceCube;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -28,6 +31,7 @@ public class BulletScript : MonoBehaviour
         currentTime =0;
         transform.position = SpawnPosition.transform.position;
         transform.rotation = SpawnPosition.transform.rotation;
+        rb.linearVelocity = Vector3.zero;
         rb.AddForce(transform.forward*bulletSpeed*Time.deltaTime);
         
     }
@@ -43,13 +47,35 @@ public class BulletScript : MonoBehaviour
         
     }
 
-    void OnTriggerEnter(Collider other)
+    // void (Collider other)
+    // {
+    //     if (other.tag=="Enemy")
+    //     {
+    //         other.GetComponentInParent<EnemyCharacterBrain>().EnableRagdoll(true);
+    //     }
+    // }
+
+    // void OnTriggerEnter(Collider other)
+    // {
+    //     if (other.tag == "Enemy")
+    //     {
+    //         other.GetComponentInChildren<EnemyCharacterBrain>().EnableRagdoll(true);
+    //     }
+    // }
+
+    void OnCollisionEnter(Collision collision)
     {
-        if (other.tag=="Enemy")
-        {
-            other.GetComponent<EnemyCharacterBrain>().EnableRagdoll(true);
-        }
+        if (collision.gameObject.tag=="Enemy")
+         {
+           
+           collision.transform.GetComponent<Rigidbody>().AddForce(500f*rb.linearVelocity.normalized*Time.deltaTime, ForceMode.Impulse);
+
+         }
+
+        
     }
+
+
 
 
 }
