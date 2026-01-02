@@ -14,6 +14,8 @@ public class BulletScript : MonoBehaviour
     float currentTime, TotalTime;
     [SerializeField]
     GameObject BulletForceCube;
+    [SerializeField]
+    EnemyCharacterBrain theBrain;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,10 +31,10 @@ public class BulletScript : MonoBehaviour
             rb = GetComponent<Rigidbody>();
         }
         currentTime =0;
-        transform.position = SpawnPosition.transform.position;
-        transform.rotation = SpawnPosition.transform.rotation;
+        rb.position = SpawnPosition.transform.position;
+        rb.rotation = SpawnPosition.transform.rotation;
         rb.linearVelocity = Vector3.zero;
-        rb.AddForce(transform.forward*bulletSpeed*Time.deltaTime);
+        rb.AddForce(SpawnPosition.transform.forward*multiplier*bulletSpeed*Time.deltaTime,ForceMode.Force);
         
     }
 
@@ -68,7 +70,15 @@ public class BulletScript : MonoBehaviour
         if (collision.gameObject.tag=="Enemy")
          {
            
-           collision.transform.GetComponent<Rigidbody>().AddForce(500f*rb.linearVelocity.normalized*Time.deltaTime, ForceMode.Impulse);
+           theBrain = collision.gameObject.GetComponentInParent<EnemyCharacterBrain>();
+           Debug.Log(theBrain.name);
+           theBrain.healthPoints-=10;
+           
+           if (theBrain.healthPoints<0)
+            {
+               collision.transform.GetComponent<Rigidbody>().AddForce(500f*rb.linearVelocity.normalized*Time.deltaTime, ForceMode.Impulse); 
+               theBrain.EnableRagdoll(true);
+            } 
 
          }
 

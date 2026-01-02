@@ -13,6 +13,7 @@ using Unity.VisualScripting;
 using RootMotion;
 using RootMotion.Dynamics;
 using System.Collections;
+using System.Security.Cryptography.X509Certificates;
 
 public class EnemyCharacterBrain : MonoBehaviour
 {
@@ -81,7 +82,11 @@ public class EnemyCharacterBrain : MonoBehaviour
     bool switchToRagDoll, ragdollSwitched, bulletRagdoll;
 
     [SerializeField]
-    public NavMeshHit coverEdge;
+    public CoverNode currentCoverNode;
+    [SerializeField]
+    public float healthPoints;
+    [SerializeField]
+    public CoverManager coverManager;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
@@ -93,6 +98,7 @@ public class EnemyCharacterBrain : MonoBehaviour
         {
             rigidbodies.Add(a);
         }
+        coverManager = GameObject.FindAnyObjectByType<CoverManager>();
     }
     void Start()
     {
@@ -109,6 +115,7 @@ public class EnemyCharacterBrain : MonoBehaviour
         if (Alerted)
         {
             EnemyLocomotionAnimator.SetFloat("LookDirection",Vector3.SignedAngle(RotationDirection,navMeshAgent.velocity,transform.up));
+            // EnemyStateMachine.SetTrigger("CoverStateTrigger");
             LookAtTarget();    
         }
 
@@ -150,6 +157,7 @@ public class EnemyCharacterBrain : MonoBehaviour
         {
             Alerted = true;
             EnemyLocomotionAnimator.SetTrigger("Alerted");
+            EnemyStateMachine.SetTrigger("CoverStateTrigger");
             AimingRigLayer.weight = 1;
         }
     }
