@@ -1,3 +1,5 @@
+using Hairibar.EngineExtensions.Pooling;
+using UnityEditor.Rendering;
 using UnityEngine;
 using UnityEngine.AI;
 
@@ -10,11 +12,19 @@ public class CoverStatesMasterScript : StateMachineBehaviour
 
         
     }
+
+    [SerializeField]
+    Vector3 SelfToCover, SelfToPlayer;
+    [SerializeField]
+    float AngleBetweenSTCAndSTP;
     [SerializeField]
     CoverStates coverStates;
+    [SerializeField]
     EnemyCharacterBrain enemyCharacterBrain;
     [SerializeField]
     bool closestCoverFound;
+    [SerializeField]
+    float tempDistance=5000;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -25,14 +35,31 @@ public class CoverStatesMasterScript : StateMachineBehaviour
 
         if (coverStates == CoverStates.FindAndMoveToCover)
         {
+            tempDistance = 5000;
             foreach(var a in enemyCharacterBrain.coverManager.CoverNodes)
             {
                 if (a.CoverHiddenFromPlayer)
                 {
-                    enemyCharacterBrain.currentCoverNode = a;
-                    break;
+                    SelfToCover = a.transform.position - animator.transform.position;
+                    SelfToPlayer = enemyCharacterBrain.RotationTarget.transform.position - animator.transform.position;
+                    AngleBetweenSTCAndSTP = Vector3.SignedAngle(SelfToCover,SelfToPlayer, animator.transform.up);
+
+                    if (AngleBetweenSTCAndSTP>-90 &&AngleBetweenSTCAndSTP<90)
+                    {
+                        
+                        if (SelfToCover.magnitude<tempDistance)
+                        {
+                            
+                            tempDistance = SelfToCover.magnitude;
+                            enemyCharacterBrain.currentCoverNode = a;
+                            
+                        }
+                        
+                    }
                 }
             }
+            // enemyCharacterBrain.currentCoverNode = TemporaryClosestNode;
+
         
             enemyCharacterBrain.navMeshAgent.SetDestination(enemyCharacterBrain.currentCoverNode.transform.position);
             Debug.Log(NavMesh.GetAreaFromName("CoverEdges"));
