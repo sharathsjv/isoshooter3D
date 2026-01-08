@@ -20,7 +20,7 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     GameObject FollowTargetForRagdoll;
     [SerializeField]
-    Animator EnemyLocomotionAnimator,EnemyStateMachine;
+    public Animator EnemyLocomotionAnimator,EnemyStateMachine;
     [SerializeField]
     RagdollAnimator ragdollAnimator;
     [SerializeField]
@@ -28,7 +28,7 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     RagdollSettings currentRagdollSettings;
     [SerializeField]
-    Rig AimingRigLayer, LegsRigLayer, ArmsRigLayer;
+    public Rig AimingRigLayer, LegsRigLayer, ArmsRigLayer;
     [SerializeField]
     PuppetMaster puppetMaster;
 
@@ -56,6 +56,9 @@ public class EnemyCharacterBrain : MonoBehaviour
     GameObject LegObject, RightObject, LegMidObject, RightMidObject;
 
     public float animationspeed;
+
+    BoxCollider detectorBoxCollider;
+    public bool isCoverWeight;
     
 
     //RagDoll Stuff
@@ -116,7 +119,8 @@ public class EnemyCharacterBrain : MonoBehaviour
         {
             EnemyLocomotionAnimator.SetFloat("LookDirection",Vector3.SignedAngle(RotationDirection,navMeshAgent.velocity,transform.up));
             // EnemyStateMachine.SetTrigger("CoverStateTrigger");
-            LookAtTarget();    
+            if (RotationTarget!=null)
+                LookAtTarget();    
         }
 
         if (switchToRagDoll && !ragdollSwitched)
@@ -134,6 +138,11 @@ public class EnemyCharacterBrain : MonoBehaviour
             puppetMaster.pinWeight -= 10f*Time.deltaTime;
             
         }
+
+        if (isCoverWeight&&Alerted)
+            SetAimingPoseWeight(0.01f);
+        else if (!isCoverWeight&&Alerted)
+            SetAimingPoseWeight(1);
         
     }
 
@@ -149,6 +158,7 @@ public class EnemyCharacterBrain : MonoBehaviour
         RotationDirection = RotationTarget.transform.position - transform.position;
         lookDirection = Quaternion.LookRotation(RotationDirection);
         transform.rotation = Quaternion.Slerp(transform.rotation,lookDirection, turnSpeed*Time.deltaTime);
+        
     }
 
     void OnTriggerEnter(Collider other)
@@ -159,7 +169,11 @@ public class EnemyCharacterBrain : MonoBehaviour
             EnemyLocomotionAnimator.SetTrigger("Alerted");
             EnemyStateMachine.SetTrigger("CoverStateTrigger");
             AimingRigLayer.weight = 1;
+            detectorBoxCollider = GetComponent<BoxCollider>();
+            detectorBoxCollider.enabled = false;
         }
+
+        
     }
 
     // public void RagDollAfterBulletHit(Vector3 InputBulletDirection)
@@ -221,6 +235,12 @@ public class EnemyCharacterBrain : MonoBehaviour
         {
             a.AddForce(10*-transform.forward,ForceMode.Force);
         }
+    }
+
+    public void SetAimingPoseWeight(float weight)
+    {
+        Debug.Log("Setting");
+        AimingRigLayer.weight = weight;
     }
 
 

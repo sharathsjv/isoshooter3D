@@ -34,7 +34,7 @@ public class BulletScript : MonoBehaviour
         rb.position = SpawnPosition.transform.position;
         rb.rotation = SpawnPosition.transform.rotation;
         rb.linearVelocity = Vector3.zero;
-        rb.AddForce(SpawnPosition.transform.forward*multiplier*bulletSpeed*Time.deltaTime,ForceMode.Force);
+        rb.linearVelocity = SpawnPosition.transform.forward*multiplier*bulletSpeed*Time.deltaTime;
         
     }
 
@@ -78,9 +78,12 @@ public class BulletScript : MonoBehaviour
             {
                collision.transform.GetComponent<Rigidbody>().AddForce(500f*rb.linearVelocity.normalized*Time.deltaTime, ForceMode.Impulse); 
                theBrain.EnableRagdoll(true);
+               theBrain.EnemyStateMachine.SetTrigger("Dead");
             } 
 
          }
+
+         transform.gameObject.SetActive(false);
 
         
     }

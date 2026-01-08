@@ -8,9 +8,8 @@ public class CoverStatesMasterScript : StateMachineBehaviour
     public enum CoverStates
     {
         FindAndMoveToCover,
-        InCoverState,
-
-        
+        InCoverCrouchState,
+        InCoverShootingState, Dead
     }
 
     [SerializeField]
@@ -62,15 +61,22 @@ public class CoverStatesMasterScript : StateMachineBehaviour
 
         
             enemyCharacterBrain.navMeshAgent.SetDestination(enemyCharacterBrain.currentCoverNode.transform.position);
+            enemyCharacterBrain.EnemyLocomotionAnimator.SetTrigger("Alerted");
             Debug.Log(NavMesh.GetAreaFromName("CoverEdges"));
         }
 
-        if (coverStates == CoverStates.InCoverState)
+        if (coverStates == CoverStates.InCoverCrouchState)
         {
+            enemyCharacterBrain.SetAimingPoseWeight(0.01f);
+            enemyCharacterBrain.EnemyLocomotionAnimator.SetTrigger("Crouch");
             
         }
        
-        
+        if (coverStates == CoverStates.Dead)
+        {
+            enemyCharacterBrain.navMeshAgent.isStopped = true;
+            enemyCharacterBrain.RotationTarget = null;
+        }
         
     }
 
@@ -85,12 +91,15 @@ public class CoverStatesMasterScript : StateMachineBehaviour
             }
         }
 
-        if (coverStates==CoverStates.InCoverState)
+        if (coverStates == CoverStates.InCoverCrouchState)
         {
+            enemyCharacterBrain.isCoverWeight = true;
+            enemyCharacterBrain.EnemyLocomotionAnimator.SetTrigger("Crouch");
             if (!enemyCharacterBrain.currentCoverNode.CoverHiddenFromPlayer)
             {
                 animator.SetTrigger("SearchForCoverTrigger");
             }
+            enemyCharacterBrain.SetAimingPoseWeight(0.01f);
             
         }
     }
@@ -106,12 +115,11 @@ public class CoverStatesMasterScript : StateMachineBehaviour
             }
         }
 
-        if (coverStates==CoverStates.InCoverState)
+        if (coverStates==CoverStates.InCoverCrouchState)
         {
-            if (!enemyCharacterBrain.currentCoverNode.CoverHiddenFromPlayer)
-            {
-                animator.ResetTrigger("SearchForCoverTrigger");
-            }
+            enemyCharacterBrain.isCoverWeight = false;
+            animator.ResetTrigger("SearchForCoverTrigger");
+            enemyCharacterBrain.EnemyLocomotionAnimator.ResetTrigger("Crouch");
             
         }
     }

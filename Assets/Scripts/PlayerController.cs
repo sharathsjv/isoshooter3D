@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour
     public bool moveInput, aimInput;
     [SerializeField]
     Vector3 moveVector, aimVector, crossProduct;
+    [SerializeField]
+    GameObject AimCylinder;
     
 
     void Start()
@@ -129,6 +131,7 @@ public class PlayerController : MonoBehaviour
         {
             aimInput = true;
             animator.SetTrigger("Strafe");
+            AimCylinder.SetActive(true);
             if (moveInput)
             {   
                 
@@ -138,6 +141,7 @@ public class PlayerController : MonoBehaviour
         {
             aimInput =false;
             animator.SetTrigger("NotStrafe");
+            AimCylinder.SetActive(false);
 
         }
         
