@@ -9,7 +9,11 @@ public class CoverStatesMasterScript : StateMachineBehaviour
     {
         FindAndMoveToCover,
         InCoverCrouchState,
-        InCoverShootingState, Dead
+        InCoverShootingState, 
+        Dead,
+        MoveTowardsPlayerDirect,
+        MoveTowardsPlayerCoverToCover,
+
     }
 
     [SerializeField]
@@ -23,7 +27,7 @@ public class CoverStatesMasterScript : StateMachineBehaviour
     [SerializeField]
     bool closestCoverFound;
     [SerializeField]
-    float tempDistance=5000;
+    float tempDistance=5000, coverToPlayerDistance;
     // OnStateEnter is called when a transition starts and the state machine starts to evaluate this state
     override public void OnStateEnter(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
@@ -65,6 +69,27 @@ public class CoverStatesMasterScript : StateMachineBehaviour
             Debug.Log(NavMesh.GetAreaFromName("CoverEdges"));
         }
 
+        if (coverStates == CoverStates.MoveTowardsPlayerCoverToCover)
+        {
+            tempDistance = 0;
+            foreach(var a in enemyCharacterBrain.coverManager.CoverNodes)
+            {
+                if (a !=enemyCharacterBrain.currentCoverNode)
+                {
+                    coverToPlayerDistance = Vector3.Distance(a.transform.position, enemyCharacterBrain.RotationTarget.transform.position);
+                    if (coverToPlayerDistance>tempDistance)
+                    {
+                        enemyCharacterBrain.currentCoverNode = a;
+                        tempDistance = coverToPlayerDistance;
+                        
+                    }
+                }
+            }
+
+            enemyCharacterBrain.navMeshAgent.SetDestination(enemyCharacterBrain.currentCoverNode.transform.position);
+            enemyCharacterBrain.EnemyLocomotionAnimator.SetTrigger("Alerted");
+        }
+
         if (coverStates == CoverStates.InCoverCrouchState)
         {
             enemyCharacterBrain.SetAimingPoseWeight(0.01f);
@@ -77,6 +102,19 @@ public class CoverStatesMasterScript : StateMachineBehaviour
             enemyCharacterBrain.navMeshAgent.isStopped = true;
             enemyCharacterBrain.RotationTarget = null;
         }
+
+        if (coverStates == CoverStates.InCoverShootingState)
+        {
+            enemyCharacterBrain.isCoverWeight = false;
+            enemyCharacterBrain.ResetStopWatch();
+            enemyCharacterBrain.EnemyLocomotionAnimator.SetTrigger("Alerted");
+        }
+
+        if (coverStates == CoverStates.MoveTowardsPlayerDirect)
+        {
+            
+        }
+
         
     }
 
@@ -101,6 +139,25 @@ public class CoverStatesMasterScript : StateMachineBehaviour
             }
             enemyCharacterBrain.SetAimingPoseWeight(0.01f);
             
+        }
+
+        if (coverStates == CoverStates.InCoverShootingState)
+        {
+            enemyCharacterBrain.currentTime+=Time.deltaTime;
+            if (enemyCharacterBrain.recoilHandler.isAtMeanPosition)
+            {
+                enemyCharacterBrain.weaponScript.Fire();
+            }
+
+            if (enemyCharacterBrain.currentTime>10f)
+            {
+                animator.SetTrigger("InCoverTrigger");
+            }
+
+            if (!enemyCharacterBrain.currentCoverNode.CoverHiddenFromPlayer)
+            {
+                animator.SetTrigger("SearchForCoverTrigger");
+            }
         }
     }
 

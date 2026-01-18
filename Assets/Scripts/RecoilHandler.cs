@@ -7,6 +7,8 @@ public class RecoilHandler : MonoBehaviour
     public float recoilY;
     public float recoilZ;
     public float snappiness;
+    public bool isAtMeanPosition;
+    public float MeanPositionMargin;
 
     // Private variables for internal calculations
     [SerializeField]
@@ -22,6 +24,15 @@ public class RecoilHandler : MonoBehaviour
               
         // Apply the rotation to the transform
         transform.localPosition = Vector3.Lerp(transform.localPosition, currentTransform,snappiness*Time.deltaTime);
+
+        if ((currentTransform - transform.localPosition).magnitude<MeanPositionMargin)
+        {
+            isAtMeanPosition = true;
+        }
+        else
+        {
+            isAtMeanPosition = false;
+        }
     }
 
     // Public method to be called when the weapon fires

@@ -19,7 +19,7 @@ public class BulletScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        SpawnPosition = GameObject.FindGameObjectWithTag("GunSpawnLocation");
+        // SpawnPosition = GameObject.FindGameObjectWithTag("GunSpawnLocation");
         rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward*multiplier*bulletSpeed*Time.deltaTime,ForceMode.Force);
     }
@@ -27,7 +27,7 @@ public class BulletScript : MonoBehaviour
     {
         if (SpawnPosition==null||rb == null)
         {
-            SpawnPosition = GameObject.FindGameObjectWithTag("GunSpawnLocation");
+            // SpawnPosition = GameObject.FindGameObjectWithTag("GunSpawnLocation");
             rb = GetComponent<Rigidbody>();
         }
         currentTime =0;
@@ -73,7 +73,8 @@ public class BulletScript : MonoBehaviour
            theBrain = collision.gameObject.GetComponentInParent<EnemyCharacterBrain>();
            Debug.Log(theBrain.name);
            theBrain.healthPoints-=10;
-           
+           theBrain.AlertedState();
+
            if (theBrain.healthPoints<0)
             {
                collision.transform.GetComponent<Rigidbody>().AddForce(500f*rb.linearVelocity.normalized*Time.deltaTime, ForceMode.Impulse); 

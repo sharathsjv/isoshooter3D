@@ -10,6 +10,7 @@ TagManager:
   - Enemy
   - Hips
   - Cover
+  - BulletEnemy
   layers:
   - Default
   - TransparentFX
@@ -18,8 +19,8 @@ TagManager:
   - Water
   - UI
   - Cover
-  - 
-  - 
+  - Enemy
+  - BulletEnemy
   - 
   - 
   - 

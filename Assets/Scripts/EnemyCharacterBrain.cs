@@ -59,6 +59,10 @@ public class EnemyCharacterBrain : MonoBehaviour
 
     BoxCollider detectorBoxCollider;
     public bool isCoverWeight;
+    [SerializeField]
+    public RecoilHandler recoilHandler;
+    [SerializeField]
+    public WeaponScript weaponScript;
     
 
     //RagDoll Stuff
@@ -87,6 +91,8 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     public CoverNode currentCoverNode;
     [SerializeField]
+    public CoverNode[] DefensiveCoverNodes;
+    [SerializeField]
     public float healthPoints;
     [SerializeField]
     public CoverManager coverManager;
@@ -97,6 +103,8 @@ public class EnemyCharacterBrain : MonoBehaviour
         ragdollAnimator = GetComponentInChildren<RagdollAnimator>();
         EnemyStateMachine = GetComponent<Animator>();
         currentRagdollSettings = GetComponentInChildren<RagdollSettings>();
+        recoilHandler = GetComponentInChildren<RecoilHandler>();
+        weaponScript = GetComponent<WeaponScript>();
         foreach(var a in GetComponentsInChildren<Rigidbody>())
         {
             rigidbodies.Add(a);
@@ -163,18 +171,14 @@ public class EnemyCharacterBrain : MonoBehaviour
 
     void OnTriggerEnter(Collider other)
     {
-        if (other.tag == "Player")
+        if (other.tag == "Player"||other.tag == "Bullet")
         {
-            Alerted = true;
-            EnemyLocomotionAnimator.SetTrigger("Alerted");
-            EnemyStateMachine.SetTrigger("CoverStateTrigger");
-            AimingRigLayer.weight = 1;
-            detectorBoxCollider = GetComponent<BoxCollider>();
-            detectorBoxCollider.enabled = false;
+            AlertedState();
         }
 
         
     }
+    
 
     // public void RagDollAfterBulletHit(Vector3 InputBulletDirection)
     // {
@@ -216,6 +220,16 @@ public class EnemyCharacterBrain : MonoBehaviour
         
     }
 
+    public void AlertedState()
+    {
+        Alerted = true;
+            EnemyLocomotionAnimator.SetTrigger("Alerted");
+            EnemyStateMachine.SetTrigger("CoverStateTrigger");
+            AimingRigLayer.weight = 1;
+            detectorBoxCollider = GetComponent<BoxCollider>();
+            detectorBoxCollider.enabled = false;
+    }
+
     IEnumerator DeathAnimation()
     {
         yield return new WaitForSeconds(1f);
@@ -243,5 +257,8 @@ public class EnemyCharacterBrain : MonoBehaviour
         AimingRigLayer.weight = weight;
     }
 
-
+    public void Shoot()
+    {
+        recoilHandler.RecoilFire();
+    }
 }
