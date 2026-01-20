@@ -2,6 +2,8 @@ using Unity.Mathematics;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Animations.Rigging;
+using UnityEngine.TextCore.Text;
+using UnityEngine.Scripting.APIUpdating;
 
 public class PlayerController : MonoBehaviour
 {
@@ -23,6 +25,16 @@ public class PlayerController : MonoBehaviour
     Vector3 moveVector, aimVector, crossProduct;
     [SerializeField]
     GameObject AimCylinder;
+
+    public InputAction movementAction;
+    public PlayerInput playerInput;
+
+    public bool isDiving,isUp = true;
+    public Vector3 diveDirection;
+    [SerializeField]
+    float diveSpeed = 10;
+    [SerializeField]
+    GameObject LookAtIk;
     
 
     void Start()
@@ -33,15 +45,23 @@ public class PlayerController : MonoBehaviour
         {
             Debug.LogError("Player needs a CharacterController component!");
         }
+
+        playerInput = GetComponent<PlayerInput>();
+        movementAction = playerInput.actions.FindAction("Movement");
     }
     void Update()
     {
         animator.SetBool("moveInput",moveInput);
+        animator.SetBool("isUp", isUp);
         rigLayer_Shooting.weight = aimVector.magnitude;
         StrafeAngle = Vector3.SignedAngle(aimVector, moveVector, transform.up);
         animator.SetFloat("StrafeAngle", StrafeAngle);
-        HandleMovement();
-        if (aimInput&&moveInput)
+        
+        if (isUp)
+            HandleMovement();
+        
+        
+        if (aimInput&&moveInput&&isUp)
         {
             //rigLayer_Shooting.weight = aimVector.magnitude;
             HandleRotation(aimHorizontal,aimVertical);
@@ -49,9 +69,23 @@ public class PlayerController : MonoBehaviour
             //if (characterController.attachedRigidbody.linearVelocity>)
             
         }
-        else
+        else if (!aimInput&&moveInput&&isUp)
         {
             HandleRotation(horizontalInput,verticalInput);
+        }
+        else if (aimInput&&!moveInput&&isUp)
+        {
+            HandleRotation(aimHorizontal,aimVertical);
+        }
+        else if (aimInput&&isDiving)
+        {
+            HandleRotation(aimHorizontal,aimVertical);
+        }
+
+        if (isDiving)
+        {
+            characterController.Move(diveDirection*diveSpeed*Time.deltaTime);
+            //LookAtIk.transform.position = new Vector3(10*Mathf.Cos(StrafeAngle),LookAtIk.transform.position.y,10*Mathf.Sin(StrafeAngle));
         }
     }
 
@@ -146,4 +180,19 @@ public class PlayerController : MonoBehaviour
         }
         
     }
+
+    public void Dive(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            animator.SetTrigger("Dive");
+            diveDirection = moveDirection;
+        }
+
+        if (context.canceled)
+        {
+        }
+    }
+
+    
 }

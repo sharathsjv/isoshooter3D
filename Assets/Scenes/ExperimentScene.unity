@@ -3862,7 +3862,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 70b342d8ce5c2fd48b8fa3147d48d1d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Unity.Animation.Rigging::UnityEngine.Animations.Rigging.Rig
-  m_Weight: 1
+  m_Weight: 0
   m_Effectors: []
 --- !u!1 &292675832
 GameObject:
@@ -8404,6 +8404,9 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2afcb48d5e113ea0abfffae5b59d0d1, type: 3}
       insertIndex: -1
       addedObject: {fileID: 624715924}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: a2afcb48d5e113ea0abfffae5b59d0d1, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 624715925}
   m_SourcePrefab: {fileID: 100100000, guid: a2afcb48d5e113ea0abfffae5b59d0d1, type: 3}
 --- !u!4 &624715923 stripped
 Transform:
@@ -8434,6 +8437,18 @@ MonoBehaviour:
   - m_Rig: {fileID: 290554834}
     m_Active: 1
   m_Effectors: []
+--- !u!114 &624715925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 217175064}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 003c5fac75056b27681a5c0f5ac5172c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
 --- !u!1 &640363666
 GameObject:
   m_ObjectHideFlags: 0
@@ -9900,6 +9915,22 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: 5859dc1b-95cc-44ab-8778-27efb7a21a9c
     m_ActionName: MainCharacter/Shoot
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 810566517}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: Dive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 2970ed75-924e-4f1f-8adf-ce8077457900
+    m_ActionName: MainCharacter/Dive - BulletTime
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Gamepad
   m_DefaultActionMap: MainCharacter
@@ -9934,6 +9965,21 @@ MonoBehaviour:
   aimVector: {x: 0, y: 0, z: 0}
   crossProduct: {x: 0, y: 0, z: 0}
   AimCylinder: {fileID: 457208662}
+  movementAction:
+    m_Name: Movement
+    m_Type: 0
+    m_ExpectedControlType: 
+    m_Id: 8554e662-cd51-4ed0-9b9d-e87ebe0609e3
+    m_Processors: 
+    m_Interactions: 
+    m_SingletonActionBindings: []
+    m_Flags: 0
+  playerInput: {fileID: 0}
+  isDiving: 0
+  isUp: 1
+  diveDirection: {x: 0, y: 0, z: 0}
+  diveSpeed: 10
+  LookAtIk: {fileID: 0}
 --- !u!114 &810566518
 MonoBehaviour:
   m_ObjectHideFlags: 0

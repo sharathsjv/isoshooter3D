@@ -35,8 +35,17 @@
                 },
                 {
                     "name": "Shoot",
-                    "type": "Button",
+                    "type": "Value",
                     "id": "5859dc1b-95cc-44ab-8778-27efb7a21a9c",
+                    "expectedControlType": "Analog",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Dive - BulletTime",
+                    "type": "Button",
+                    "id": "2970ed75-924e-4f1f-8adf-ce8077457900",
                     "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
@@ -228,6 +237,17 @@
                     "processors": "",
                     "groups": ";Gamepad",
                     "action": "Shoot",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "3393c2c6-f3ac-4ea0-8ad9-c5f1d8445e57",
+                    "path": "<Gamepad>/buttonSouth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";Gamepad",
+                    "action": "Dive - BulletTime",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
