@@ -2650,12 +2650,13 @@ Animator:
   m_AnimatePhysics: 0
   m_WarningMessage: "\nBinding warning: Some generic clip(s) animate transforms that
     are already bound by a Humanoid avatar. These transforms can only be changed
-    by Humanoid clips.\n\tTransform 'mixamorig:LeftFoot'\n\tTransform 'mixamorig:Spine1'\n\tTransform
-    'mixamorig:LeftLeg'\n\tTransform 'mixamorig:LeftShoulder'\n\tTransform 'mixamorig:RightFoot'\n\tTransform
-    'mixamorig:LeftUpLeg'\n\tTransform 'mixamorig:RightHand'\n\tTransform 'mixamorig:Hips'\n\tTransform
-    'mixamorig:RightShoulder'\n\tTransform 'mixamorig:RightLeg'\n\tand more ...\n\tFrom
-    animation clip 'RightStrafe'\n\tFrom animation clip 'LeftStrafe'\n\tFrom animation
-    clip 'WalkingNonRoot'\n\tFrom animation clip 'WalkingNonRoot'"
+    by Humanoid clips.\n\tTransform 'mixamorig:Hips'\n\tTransform 'mixamorig:LeftFoot'\n\tTransform
+    'mixamorig:LeftHandThumb2'\n\tTransform 'mixamorig:LeftHandIndex1'\n\tTransform
+    'mixamorig:LeftHandPinky2'\n\tTransform 'mixamorig:RightHandRing2'\n\tTransform
+    'mixamorig:Spine1'\n\tTransform 'mixamorig:LeftToeBase'\n\tTransform 'mixamorig:LeftHandThumb3'\n\tTransform
+    'mixamorig:RightArm'\n\tand more ...\n\tFrom animation clip 'RightStrafe'\n\tFrom
+    animation clip 'LeftStrafe'\n\tFrom animation clip 'WalkingNonRoot'\n\tFrom animation
+    clip 'WalkingNonRoot'"
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
@@ -4273,7 +4274,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: -4.81
+  near clip plane: -13.9
   far clip plane: 1000
   field of view: 69.82817
   orthographic: 1
@@ -4302,7 +4303,7 @@ Transform:
   m_GameObject: {fileID: 330585543}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -1.72, y: 4.52, z: -0.66}
+  m_LocalPosition: {x: -0.63, y: 4.52, z: 0.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6088,6 +6089,37 @@ Transform:
   m_Children: []
   m_Father: {fileID: 810566514}
   m_LocalEulerAnglesHint: {x: -47.931, y: 14.61, z: -173.651}
+--- !u!1 &516405949
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 516405950}
+  m_Layer: 0
+  m_Name: Camera_LookAt
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &516405950
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 516405949}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0.38268343, z: 0, w: 0.92387956}
+  m_LocalPosition: {x: 1.09, y: 0, z: 1.09}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 810566514}
+  m_LocalEulerAnglesHint: {x: 0, y: 45, z: 0}
 --- !u!1 &520002409
 GameObject:
   m_ObjectHideFlags: 0
@@ -7576,7 +7608,7 @@ Transform:
   m_GameObject: {fileID: 596820591}
   serializedVersion: 2
   m_LocalRotation: {x: 0.23911765, y: 0.3696438, z: -0.09904577, w: 0.89239913}
-  m_LocalPosition: {x: -1.72, y: 4.52, z: -0.66}
+  m_LocalPosition: {x: -0.63, y: 4.52, z: 0.43}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7602,13 +7634,13 @@ MonoBehaviour:
   m_StreamingVersion: 20241001
   m_LegacyPriority: 0
   Target:
-    TrackingTarget: {fileID: 1148455850}
+    TrackingTarget: {fileID: 516405950}
     LookAtTarget: {fileID: 0}
     CustomLookAtTarget: 0
   Lens:
     FieldOfView: 69.82817
     OrthographicSize: 5
-    NearClipPlane: -4.81
+    NearClipPlane: -13.9
     FarClipPlane: 1000
     Dutch: 0
     ModeOverride: 0
@@ -9808,6 +9840,7 @@ Transform:
   m_Children:
   - {fileID: 624715923}
   - {fileID: 1858522834}
+  - {fileID: 516405950}
   - {fileID: 1949629821}
   - {fileID: 411540811}
   - {fileID: 516093193}

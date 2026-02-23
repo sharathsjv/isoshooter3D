@@ -87,6 +87,8 @@ public class EnemyCharacterBrain : MonoBehaviour
     //crude checking whether switching works
     [SerializeField]
     bool switchToRagDoll, ragdollSwitched, bulletRagdoll;
+    [SerializeField]
+    public bool IsSimplyLookingAtPlayer;
 
     [SerializeField]
     public CoverNode currentCoverNode;
@@ -151,6 +153,9 @@ public class EnemyCharacterBrain : MonoBehaviour
             SetAimingPoseWeight(0.01f);
         else if (!isCoverWeight&&Alerted)
             SetAimingPoseWeight(1);
+
+        if (IsSimplyLookingAtPlayer)
+            LookAtTarget(); 
         
     }
 
@@ -260,5 +265,15 @@ public class EnemyCharacterBrain : MonoBehaviour
     public void Shoot()
     {
         recoilHandler.RecoilFire();
+    }
+
+    public void SetLookAtTargetMode(bool istrue)
+    {
+        IsSimplyLookingAtPlayer = istrue;
+    }
+
+    public void SetLookAtTarget(GameObject target)
+    {
+        RotationTarget = target;
     }
 }

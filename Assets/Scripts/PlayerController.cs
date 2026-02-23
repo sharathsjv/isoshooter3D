@@ -35,6 +35,9 @@ public class PlayerController : MonoBehaviour
     float diveSpeed = 10;
     [SerializeField]
     GameObject LookAtIk;
+
+    [SerializeField]
+    public bool interactInput;
     
 
     void Start()
@@ -191,6 +194,24 @@ public class PlayerController : MonoBehaviour
 
         if (context.canceled)
         {
+        }
+    }
+
+    public void InteractInput(InputAction.CallbackContext context)
+    {
+        // interactInput = context.started;
+        // if (interactInput)
+        // {
+        //     Debug.Log("Yes");
+        // }
+
+        if (context.started)
+        {
+            interactInput = true;
+        }
+        if (context.canceled)
+        {
+            interactInput = false;
         }
     }
 
