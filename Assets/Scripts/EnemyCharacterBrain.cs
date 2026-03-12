@@ -99,6 +99,25 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     public CoverManager coverManager;
 
+    //normal sitting
+    public bool isSitting;
+    public bool IsSitting
+    {
+        get {return isSitting;}
+        set
+        {
+            isSitting = value;
+            if (value == true)
+            {
+                TurnTheNPCtoSit();
+            }
+            else if (value == false)
+            {
+                TurnNPCToStand();
+            }
+        }
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
@@ -117,6 +136,7 @@ public class EnemyCharacterBrain : MonoBehaviour
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         PinWeightOverTime = 1;
+        IsSitting = isSitting;
         
     }
 
@@ -156,6 +176,16 @@ public class EnemyCharacterBrain : MonoBehaviour
 
         if (IsSimplyLookingAtPlayer)
             LookAtTarget(); 
+
+        // if (isSitting)
+        // {
+            EnemyLocomotionAnimator.SetBool("Sitting",isSitting);
+        // }
+        // else
+        // {
+        //     EnemyLocomotionAnimator.ResetTrigger("Sitting");
+            
+        // }
         
     }
 
@@ -275,5 +305,30 @@ public class EnemyCharacterBrain : MonoBehaviour
     public void SetLookAtTarget(GameObject target)
     {
         RotationTarget = target;
+    }
+
+    public void TurnTheNPCtoSit()
+    {
+        if (navMeshAgent == null)
+        {
+            GetComponent<NavMeshAgent>();
+
+        }
+        AimingRigLayer.weight = 0;
+
+        navMeshAgent.enabled = false;
+
+    }
+
+    public void TurnNPCToStand()
+    {
+        if (navMeshAgent == null)
+        {
+            GetComponent<NavMeshAgent>();
+
+        }
+
+        navMeshAgent.enabled = true;
+        
     }
 }

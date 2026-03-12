@@ -1,15 +1,16 @@
 using UnityEngine;
 
-public class SequenceIndex : MonoBehaviour
+public class GameManager : MonoBehaviour
 {
-    public string SequenceName, objectiveText;
-    SequenceIndex NextIndex;
-
-
+    public static GameManager instance;
+    public SequenceIndex currentIndex;
+    void Awake()
+    {
+        instance = this;
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
-        GameManager.instance.currentIndex = this;
         
     }
 

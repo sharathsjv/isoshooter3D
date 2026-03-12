@@ -11,6 +11,8 @@ TagManager:
   - Hips
   - Cover
   - BulletEnemy
+  - ObjectiveText
+  - ChapterText
   layers:
   - Default
   - TransparentFX

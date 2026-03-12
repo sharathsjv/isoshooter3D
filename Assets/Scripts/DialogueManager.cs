@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Analytics;
 using UnityEngine.Events;
 using UnityEngine.InputSystem;
 
@@ -64,8 +65,17 @@ public class DialogueManager : MonoBehaviour
                     DialoguePlayerInput.enabled = false;
                     MainPlayerInput.enabled = true;
                     Debug.Log("Dialogue Sequence Over");
-                    OnCompleteFunctions.Invoke();
-                    this.gameObject.SetActive(false);
+                    if (OnCompleteFunctions==null)
+                    {
+                        this.gameObject.SetActive(false);
+                    }
+                    else
+                    {
+                        OnCompleteFunctions.Invoke();
+                        this.gameObject.SetActive(false);
+                    }
+                    
+                    
                     
                 }
             }

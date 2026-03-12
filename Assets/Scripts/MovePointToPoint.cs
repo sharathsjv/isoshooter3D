@@ -45,6 +45,9 @@ public class MovePointToPoint : MonoBehaviour
         }
         else
         {
+            if (NPCAgent.enabled == false)
+                NPCAgent.enabled = true;
+            
             NPCAgent.SetDestination(Target.position);
         }
     }
