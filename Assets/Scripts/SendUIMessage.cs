@@ -3,6 +3,11 @@ using UnityEngine;
 
 public class SendUIMessage : MonoBehaviour
 {
+    public enum UIType
+    {
+        ObjectiveUIText,
+        ActionUIText
+    }
 
     [SerializeField]
     TextMeshProUGUI ActionUI;
@@ -18,6 +23,11 @@ public class SendUIMessage : MonoBehaviour
     void Update()
     {
         
+    }
+
+    void OnEnable()
+    {
+        ActionUI.text = UIText;
     }
 
     void OnTriggerEnter(Collider other)

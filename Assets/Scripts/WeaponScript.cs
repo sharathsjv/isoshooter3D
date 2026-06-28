@@ -18,6 +18,8 @@ public class WeaponScript : MonoBehaviour
     public RecoilHandler recoilHandler;
     public GameObject[] bullets;
     int currentBullet;
+    [SerializeField]
+    public GameObject bulletSpawn;
 
     public void FireInput(InputAction.CallbackContext context)
     {
@@ -25,13 +27,29 @@ public class WeaponScript : MonoBehaviour
             Fire();
     }
 
+    void Awake()
+    {
+        foreach(Transform child in transform)
+        {
+            if (child.gameObject.tag  == "GunSpawnLocation")
+            {
+                bulletSpawn = child.gameObject;
+            }
+        }
+    }
+
     void Start()
     {
-        bullets = GameObject.FindGameObjectsWithTag(BulletTag);
-        foreach(var a in bullets)
+        int i = 0;
+        foreach(var a in BulletPool.instance.AllTheBullets)
         {
-            a.SetActive(false);
+            if (a.GetComponent<BulletScript>().SpawnPosition==bulletSpawn)
+            {   
+                bullets[i]=a;
+                i++;
+            }
         }
+        
         if (controllerType == ControllerType.Player)
         playerController = GetComponent<PlayerController>();
         if (controllerType == ControllerType.EnemyCharacterBrain)

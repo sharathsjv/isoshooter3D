@@ -1,3 +1,4 @@
+using NUnit.Framework;
 using UnityEditor.ShaderKeywordFilter;
 using UnityEngine;
 
@@ -13,6 +14,8 @@ public class CoverNode : MonoBehaviour
     LayerMask PlayerMask, CoverMask;
     [SerializeField]
     float Range = 50f;
+    [SerializeField]
+    public bool isFilled;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -38,5 +41,17 @@ public class CoverNode : MonoBehaviour
         // Debug.DrawLine(transform.position, (player.transform.position - transform.position)*Range);
 
         
+    }
+
+    void OnTriggerStay(Collider other)
+    {
+        if (other.tag == "Enemy")
+        {
+            isFilled = true;
+        }
+    }
+    void OnTriggerExit(Collider other)
+    {
+        isFilled= false;
     }
 }

@@ -22,7 +22,7 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     public Animator EnemyLocomotionAnimator,EnemyStateMachine;
     [SerializeField]
-    RagdollAnimator ragdollAnimator;
+    public BehaviourPuppet puppet;
     [SerializeField]
     RagdollPowerProfile ragdollPowerProfile;
     [SerializeField]
@@ -83,6 +83,7 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     public Vector3 BulletDirection;
     
+    
 
     //crude checking whether switching works
     [SerializeField]
@@ -93,7 +94,7 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     public CoverNode currentCoverNode;
     [SerializeField]
-    public CoverNode[] DefensiveCoverNodes;
+    public List<CoverNode> DefensiveCoverNodes;
     [SerializeField]
     public float healthPoints;
     [SerializeField]
@@ -121,7 +122,6 @@ public class EnemyCharacterBrain : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Awake()
     {
-        ragdollAnimator = GetComponentInChildren<RagdollAnimator>();
         EnemyStateMachine = GetComponent<Animator>();
         currentRagdollSettings = GetComponentInChildren<RagdollSettings>();
         recoilHandler = GetComponentInChildren<RecoilHandler>();
@@ -131,19 +131,28 @@ public class EnemyCharacterBrain : MonoBehaviour
             rigidbodies.Add(a);
         }
         coverManager = GameObject.FindAnyObjectByType<CoverManager>();
+        
     }
     void Start()
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         PinWeightOverTime = 1;
         IsSitting = isSitting;
+        DefensiveCoverNodes = coverManager.CoverNodes;
         
     }
 
     // Update is called once per frame
     void Update()
     {
+
+        navMeshAgent.enabled = puppet.state == BehaviourPuppet.State.Puppet;
         EnemyLocomotionAnimator.SetFloat("IDLE_MoveSpeed", navMeshAgent.velocity.magnitude);
+
+        if (navMeshAgent.enabled = puppet.state == BehaviourPuppet.State.Puppet)
+        {
+            
+        }
         
         if (Alerted)
         {
@@ -179,7 +188,8 @@ public class EnemyCharacterBrain : MonoBehaviour
 
         // if (isSitting)
         // {
-            EnemyLocomotionAnimator.SetBool("Sitting",isSitting);
+        // if (SitTrigger)
+        EnemyLocomotionAnimator.SetBool("Sitting",IsSitting);
         // }
         // else
         // {
@@ -314,7 +324,7 @@ public class EnemyCharacterBrain : MonoBehaviour
             GetComponent<NavMeshAgent>();
 
         }
-        AimingRigLayer.weight = 0;
+        ArmsRigLayer.weight = 0;
 
         navMeshAgent.enabled = false;
 

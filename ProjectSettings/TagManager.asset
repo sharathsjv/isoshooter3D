@@ -23,10 +23,10 @@ TagManager:
   - Cover
   - Enemy
   - BulletEnemy
-  - 
-  - 
-  - 
-  - 
+  - Characters
+  - Ragdoll
+  - Ground
+  - Collision
   - 
   - 
   - 

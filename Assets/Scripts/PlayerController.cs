@@ -215,5 +215,15 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void SetIsUp(bool thevalue)
+    {
+        isUp = thevalue;
+    }
+
+    public void MovePlayerStatic(Transform newposition)
+    {
+        transform.position = newposition.position;
+    }
+
     
 }

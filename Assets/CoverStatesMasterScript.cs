@@ -13,6 +13,7 @@ public class CoverStatesMasterScript : StateMachineBehaviour
         Dead,
         MoveTowardsPlayerDirect,
         MoveTowardsPlayerCoverToCover,
+        OutsideCoverShoot
 
     }
 
@@ -41,7 +42,7 @@ public class CoverStatesMasterScript : StateMachineBehaviour
             tempDistance = 5000;
             foreach(var a in enemyCharacterBrain.coverManager.CoverNodes)
             {
-                if (a.CoverHiddenFromPlayer)
+                if (a.CoverHiddenFromPlayer||!a.isFilled)
                 {
                     SelfToCover = a.transform.position - animator.transform.position;
                     SelfToPlayer = enemyCharacterBrain.RotationTarget.transform.position - animator.transform.position;
@@ -55,6 +56,7 @@ public class CoverStatesMasterScript : StateMachineBehaviour
                             
                             tempDistance = SelfToCover.magnitude;
                             enemyCharacterBrain.currentCoverNode = a;
+                            a.isFilled = true;
                             
                         }
                         
@@ -110,6 +112,13 @@ public class CoverStatesMasterScript : StateMachineBehaviour
             enemyCharacterBrain.EnemyLocomotionAnimator.SetTrigger("Alerted");
         }
 
+        if (coverStates == CoverStates.OutsideCoverShoot)
+        {
+            enemyCharacterBrain.isCoverWeight = false;
+            enemyCharacterBrain.ResetStopWatch();
+            enemyCharacterBrain.EnemyLocomotionAnimator.SetTrigger("Alerted");
+        }
+
         if (coverStates == CoverStates.MoveTowardsPlayerDirect)
         {
             
@@ -127,6 +136,11 @@ public class CoverStatesMasterScript : StateMachineBehaviour
             {
                 animator.SetTrigger("InCoverTrigger");
             }
+        }
+
+        if (coverStates == CoverStates.OutsideCoverShoot)
+        {
+            enemyCharacterBrain.weaponScript.Fire();
         }
 
         if (coverStates == CoverStates.InCoverCrouchState)

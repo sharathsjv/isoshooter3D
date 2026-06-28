@@ -18,7 +18,7 @@ public class DialogueManager : MonoBehaviour
     [SerializeField]
     PlayerInput MainPlayerInput, DialoguePlayerInput;
     [SerializeField]
-    UnityEvent OnCompleteFunctions;
+    UnityEvent OnStartFunction, OnCompleteFunctions;
 
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -67,12 +67,16 @@ public class DialogueManager : MonoBehaviour
                     Debug.Log("Dialogue Sequence Over");
                     if (OnCompleteFunctions==null)
                     {
+                         
                         this.gameObject.SetActive(false);
+                        Debug.Log("Invoking and turning off");
                     }
                     else
                     {
+                        
                         OnCompleteFunctions.Invoke();
                         this.gameObject.SetActive(false);
+                        Debug.Log("Turning off");
                     }
                     
                     

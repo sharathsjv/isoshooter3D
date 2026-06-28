@@ -1,4 +1,5 @@
 using System.Numerics;
+using RootMotion.Dynamics;
 using UnityEngine;
 using Vector3 = UnityEngine.Vector3;
 
@@ -9,7 +10,7 @@ public class BulletScript : MonoBehaviour
     [SerializeField]
     Rigidbody rb;
     [SerializeField]
-    GameObject SpawnPosition;
+    public GameObject SpawnPosition;
     [SerializeField]
     float currentTime, TotalTime;
     [SerializeField]
@@ -19,6 +20,7 @@ public class BulletScript : MonoBehaviour
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        // BulletPool.instance.AllTheBullets[BulletPool.instance.AllTheBullets.Length+1]=this.gameObject;
         // SpawnPosition = GameObject.FindGameObjectWithTag("GunSpawnLocation");
         rb = GetComponent<Rigidbody>();
         rb.AddForce(transform.forward*multiplier*bulletSpeed*Time.deltaTime,ForceMode.Force);
@@ -74,15 +76,19 @@ public class BulletScript : MonoBehaviour
            Debug.Log(theBrain.name);
            theBrain.healthPoints-=10;
            theBrain.AlertedState();
+        //    collision.collider.attachedRigidbody.GetComponent<MuscleCollisionBroadcaster>().Hit(rb.linearVelocity.magnitude*0.02f,Vector3.zero, collision.transform.position);
 
            if (theBrain.healthPoints<0)
             {
-               collision.transform.GetComponent<Rigidbody>().AddForce(500f*rb.linearVelocity.normalized*Time.deltaTime, ForceMode.Impulse); 
-               theBrain.EnableRagdoll(true);
-               theBrain.EnemyStateMachine.SetTrigger("Dead");
+            //    collision.transform.GetComponent<Rigidbody>().AddForce(500f*rb.linearVelocity.normalized*Time.deltaTime, ForceMode.Impulse); 
+                // collision.collider.attachedRigidbody.GetComponent<MuscleCollisionBroadcaster>().Hit(rb.linearVelocity.magnitude*0.02f,Vector3.zero, collision.transform.position);
+            //    theBrain.EnableRagdoll(true);
+            //    theBrain.EnemyStateMachine.SetTrigger("Dead");
             } 
 
          }
+
+         
 
          transform.gameObject.SetActive(false);
 
