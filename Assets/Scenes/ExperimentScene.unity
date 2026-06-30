@@ -2457,7 +2457,7 @@ MonoBehaviour:
   FollowTargetForRagdoll: {fileID: 0}
   EnemyLocomotionAnimator: {fileID: 8821985687127959930}
   EnemyStateMachine: {fileID: 0}
-  puppet: {fileID: 0}
+  puppet: {fileID: 946819686}
   ragdollPowerProfile: {fileID: 0}
   currentRagdollSettings: {fileID: 0}
   AimingRigLayer: {fileID: 6503729076050332590}
@@ -10181,6 +10181,17 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 444240, guid: bdc15cb97660141638eaeea7afbe7591, type: 3}
   m_PrefabInstance: {fileID: 946819684}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &946819686 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 11466454, guid: bdc15cb97660141638eaeea7afbe7591, type: 3}
+  m_PrefabInstance: {fileID: 946819684}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1efacf79ab4214e85aeebfd07064c20f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &953559808
 GameObject:
   m_ObjectHideFlags: 0
