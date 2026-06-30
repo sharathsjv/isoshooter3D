@@ -132,9 +132,10 @@ public class CoverStatesMasterScript : StateMachineBehaviour
     {
         if (coverStates == CoverStates.FindAndMoveToCover)
         {
-            if (enemyCharacterBrain.navMeshAgent.remainingDistance<0.2)
+            if (enemyCharacterBrain.navMeshAgent.enabled)
             {
-                animator.SetTrigger("InCoverTrigger");
+                if (enemyCharacterBrain.navMeshAgent.remainingDistance<0.2)
+                    animator.SetTrigger("InCoverTrigger");
             }
         }
 

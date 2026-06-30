@@ -1971,6 +1971,191 @@ ConfigurableJoint:
   m_EnablePreprocessing: 1
   m_MassScale: 1
   m_ConnectedMassScale: 1
+--- !u!1 &2740175161363447060
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7063452166752890303}
+  - component: {fileID: 97318942839920718}
+  - component: {fileID: 2825760488056396487}
+  - component: {fileID: 8068530610066814205}
+  - component: {fileID: 4078467534463097162}
+  m_Layer: 0
+  m_Name: CharacterController
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7063452166752890303
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740175161363447060}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1395656171863276894}
+  m_Father: {fileID: 3315400216103853469}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!95 &97318942839920718
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740175161363447060}
+  m_Enabled: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 0f02be14bbe80b59aa0dc9508c019398, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &2825760488056396487
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740175161363447060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ed4fe90a9e22b6ee5bd649ac72378814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: '::'
+  FollowTargetForRagdoll: {fileID: 0}
+  EnemyLocomotionAnimator: {fileID: 3619175456885041687}
+  EnemyStateMachine: {fileID: 0}
+  puppet: {fileID: 0}
+  ragdollPowerProfile: {fileID: 0}
+  currentRagdollSettings: {fileID: 0}
+  AimingRigLayer: {fileID: 1303223610872842435}
+  LegsRigLayer: {fileID: 1531366659091835271}
+  ArmsRigLayer: {fileID: 994728062366482979}
+  puppetMaster: {fileID: 6163168234023799092}
+  EnemyLocomotionAnimatorController: {fileID: 0}
+  NullAnimatorController: {fileID: 0}
+  NavMeshTarget: {fileID: 0}
+  RotationTarget: {fileID: 0}
+  navMeshAgent: {fileID: 0}
+  RotationDirection: {x: 0, y: 0, z: 0}
+  lookDirection: {x: 0, y: 0, z: 0, w: 0}
+  turnSpeed: 100
+  currentTime: 0
+  totalAlertStateWaitTime: 8
+  WaitNodes:
+  - {fileID: 0}
+  - {fileID: 0}
+  currentNodePointer: 0
+  Alerted: 0
+  LegObject: {fileID: 0}
+  RightObject: {fileID: 0}
+  LegMidObject: {fileID: 0}
+  RightMidObject: {fileID: 0}
+  animationspeed: 0
+  isCoverWeight: 0
+  recoilHandler: {fileID: 0}
+  weaponScript: {fileID: 0}
+  rigidbodies: []
+  hipsrigidbody: {fileID: 0}
+  armature: {fileID: 0}
+  RootMotionSpeedOverTime:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: -0.03762912
+      outSlope: -0.03762912
+      tangentMode: 0
+      weightedMode: 2
+      inWeight: 0
+      outWeight: 0.56946814
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: -5.821703
+      outSlope: -5.821703
+      tangentMode: 0
+      weightedMode: 1
+      inWeight: 0.114923
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  PinWeightOverTime: 0
+  BulletForceMagnitude: 10
+  RagDollRotationDirection: {x: 0, y: 0, z: 0}
+  BulletDirection: {x: 0, y: 0, z: 0}
+  switchToRagDoll: 0
+  ragdollSwitched: 0
+  bulletRagdoll: 0
+  IsSimplyLookingAtPlayer: 0
+  currentCoverNode: {fileID: 0}
+  DefensiveCoverNodes: []
+  healthPoints: 50
+  coverManager: {fileID: 0}
+  CharacterDoll: {fileID: 0}
+  isSitting: 1
+--- !u!195 &8068530610066814205
+NavMeshAgent:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740175161363447060}
+  m_Enabled: 1
+  m_AgentTypeID: 0
+  m_Radius: 0.5
+  m_Speed: 3.5
+  m_Acceleration: 8
+  avoidancePriority: 50
+  m_AngularSpeed: 450
+  m_StoppingDistance: 0
+  m_AutoTraverseOffMeshLink: 1
+  m_AutoBraking: 1
+  m_AutoRepath: 1
+  m_Height: 2
+  m_BaseOffset: 0
+  m_WalkableMask: 16
+  m_ObstacleAvoidanceType: 4
+--- !u!114 &4078467534463097162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2740175161363447060}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d530d7343f2cd467a7a448a33b7fc27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::WeaponScript
+  controllerType: 1
+  playerController: {fileID: 0}
+  enemyCharacterBrain: {fileID: 0}
+  BulletTag: BulletEnemy
+  recoilHandler: {fileID: 0}
+  bullets: []
+  bulletSpawn: {fileID: 0}
 --- !u!1 &2760024392912783434
 GameObject:
   m_ObjectHideFlags: 0
@@ -3562,7 +3747,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4020234059938508106}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -3578,7 +3763,7 @@ Transform:
   - {fileID: 2467243290233733023}
   - {fileID: 3405818151968802919}
   - {fileID: 5334260624633298637}
-  m_Father: {fileID: 3315400216103853469}
+  m_Father: {fileID: 7063452166752890303}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &3619175456885041687
 Animator:
@@ -5770,7 +5955,7 @@ Transform:
   m_Children:
   - {fileID: 8893354711863591800}
   - {fileID: 2891056239117358169}
-  - {fileID: 1395656171863276894}
+  - {fileID: 7063452166752890303}
   m_Father: {fileID: 1357375697493874455}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6886340048902538667
@@ -6329,11 +6514,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1357375697493874455}
-  - component: {fileID: 5846443891005851999}
-  - component: {fileID: 1886584232884397152}
-  - component: {fileID: 8892042376885763500}
-  - component: {fileID: 7551330791961198661}
-  - component: {fileID: 8102234321140939535}
   - component: {fileID: 3697875249651912949}
   m_Layer: 0
   m_Name: EnemyCharacter
@@ -6361,168 +6541,6 @@ Transform:
   - {fileID: 3315400216103853469}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: -180, z: 0}
---- !u!195 &5846443891005851999
-NavMeshAgent:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7281474302197469082}
-  m_Enabled: 1
-  m_AgentTypeID: 0
-  m_Radius: 0.5
-  m_Speed: 3.5
-  m_Acceleration: 8
-  avoidancePriority: 50
-  m_AngularSpeed: 450
-  m_StoppingDistance: 0
-  m_AutoTraverseOffMeshLink: 1
-  m_AutoBraking: 1
-  m_AutoRepath: 1
-  m_Height: 2
-  m_BaseOffset: 0
-  m_WalkableMask: 16
-  m_ObstacleAvoidanceType: 4
---- !u!114 &1886584232884397152
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7281474302197469082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ed4fe90a9e22b6ee5bd649ac72378814, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
-  FollowTargetForRagdoll: {fileID: 0}
-  EnemyLocomotionAnimator: {fileID: 3619175456885041687}
-  EnemyStateMachine: {fileID: 0}
-  ragdollAnimator: {fileID: 0}
-  ragdollPowerProfile: {fileID: 0}
-  currentRagdollSettings: {fileID: 0}
-  AimingRigLayer: {fileID: 1303223610872842435}
-  LegsRigLayer: {fileID: 1531366659091835271}
-  ArmsRigLayer: {fileID: 994728062366482979}
-  puppetMaster: {fileID: 6163168234023799092}
-  EnemyLocomotionAnimatorController: {fileID: 0}
-  NullAnimatorController: {fileID: 0}
-  NavMeshTarget: {fileID: 0}
-  RotationTarget: {fileID: 0}
-  navMeshAgent: {fileID: 0}
-  RotationDirection: {x: 0, y: 0, z: 0}
-  lookDirection: {x: 0, y: 0, z: 0, w: 0}
-  turnSpeed: 100
-  currentTime: 0
-  totalAlertStateWaitTime: 8
-  WaitNodes:
-  - {fileID: 0}
-  - {fileID: 0}
-  currentNodePointer: 0
-  Alerted: 0
-  LegObject: {fileID: 0}
-  RightObject: {fileID: 0}
-  LegMidObject: {fileID: 0}
-  RightMidObject: {fileID: 0}
-  animationspeed: 0
-  isCoverWeight: 0
-  recoilHandler: {fileID: 0}
-  weaponScript: {fileID: 0}
-  rigidbodies: []
-  hipsrigidbody: {fileID: 0}
-  armature: {fileID: 0}
-  RootMotionSpeedOverTime:
-    serializedVersion: 2
-    m_Curve:
-    - serializedVersion: 3
-      time: 0
-      value: 1
-      inSlope: -0.03762912
-      outSlope: -0.03762912
-      tangentMode: 0
-      weightedMode: 2
-      inWeight: 0
-      outWeight: 0.56946814
-    - serializedVersion: 3
-      time: 1
-      value: 0
-      inSlope: -5.821703
-      outSlope: -5.821703
-      tangentMode: 0
-      weightedMode: 1
-      inWeight: 0.114923
-      outWeight: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-    m_RotationOrder: 4
-  PinWeightOverTime: 0
-  BulletForceMagnitude: 10
-  RagDollRotationDirection: {x: 0, y: 0, z: 0}
-  BulletDirection: {x: 0, y: 0, z: 0}
-  switchToRagDoll: 0
-  ragdollSwitched: 0
-  bulletRagdoll: 0
-  IsSimplyLookingAtPlayer: 0
-  currentCoverNode: {fileID: 0}
-  DefensiveCoverNodes: []
-  healthPoints: 50
-  coverManager: {fileID: 0}
-  isSitting: 1
---- !u!95 &8892042376885763500
-Animator:
-  serializedVersion: 7
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7281474302197469082}
-  m_Enabled: 0
-  m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 0f02be14bbe80b59aa0dc9508c019398, type: 2}
-  m_CullingMode: 0
-  m_UpdateMode: 0
-  m_ApplyRootMotion: 0
-  m_LinearVelocityBlending: 0
-  m_StabilizeFeet: 0
-  m_AnimatePhysics: 0
-  m_WarningMessage: 
-  m_HasTransformHierarchy: 1
-  m_AllowConstantClipSamplingOptimization: 1
-  m_KeepAnimatorStateOnDisable: 0
-  m_WriteDefaultValuesOnDisable: 0
---- !u!65 &7551330791961198661
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7281474302197469082}
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_LayerOverridePriority: 0
-  m_IsTrigger: 1
-  m_ProvidesContacts: 0
-  m_Enabled: 0
-  serializedVersion: 3
-  m_Size: {x: 4.522152, y: 1, z: 2.6122293}
-  m_Center: {x: 0, y: 0.70000005, z: 2.0061145}
---- !u!114 &8102234321140939535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7281474302197469082}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1675859b87c65588b9c83b1bdc2cb0a2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: '::'
 --- !u!114 &3697875249651912949
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6541,6 +6559,7 @@ MonoBehaviour:
   BulletTag: BulletEnemy
   recoilHandler: {fileID: 0}
   bullets: []
+  bulletSpawn: {fileID: 0}
 --- !u!1 &7292071449683522231
 GameObject:
   m_ObjectHideFlags: 0

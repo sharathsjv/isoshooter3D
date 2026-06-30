@@ -14,6 +14,7 @@ using RootMotion;
 using RootMotion.Dynamics;
 using System.Collections;
 using System.Security.Cryptography.X509Certificates;
+using System.Numerics;
 
 public class EnemyCharacterBrain : MonoBehaviour
 {
@@ -40,9 +41,9 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     public NavMeshAgent navMeshAgent;
     [SerializeField]
-    Vector3 RotationDirection;
+    UnityEngine.Vector3 RotationDirection;
     [SerializeField]
-    Quaternion lookDirection;
+    UnityEngine.Quaternion lookDirection;
     [SerializeField]
     float turnSpeed;
     [SerializeField]
@@ -79,9 +80,9 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     float BulletForceMagnitude = 10;
     [SerializeField]
-    public Vector3 RagDollRotationDirection;
+    public UnityEngine.Vector3 RagDollRotationDirection;
     [SerializeField]
-    public Vector3 BulletDirection;
+    public UnityEngine.Vector3 BulletDirection;
     
     
 
@@ -100,6 +101,7 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     public CoverManager coverManager;
 
+    public GameObject CharacterDoll;
     //normal sitting
     public bool isSitting;
     public bool IsSitting
@@ -131,6 +133,7 @@ public class EnemyCharacterBrain : MonoBehaviour
             rigidbodies.Add(a);
         }
         coverManager = GameObject.FindAnyObjectByType<CoverManager>();
+        Physics.IgnoreLayerCollision(8, 10, true);
         
     }
     void Start()
@@ -149,16 +152,33 @@ public class EnemyCharacterBrain : MonoBehaviour
         navMeshAgent.enabled = puppet.state == BehaviourPuppet.State.Puppet;
         EnemyLocomotionAnimator.SetFloat("IDLE_MoveSpeed", navMeshAgent.velocity.magnitude);
 
-        if (navMeshAgent.enabled = puppet.state == BehaviourPuppet.State.Puppet)
+        if (puppet.state != BehaviourPuppet.State.Puppet && navMeshAgent.enabled)
         {
-            
+        
+            ArmsRigLayer.weight = 0;
+        }
+        else
+        {
+            ArmsRigLayer.weight = 1;
+        }
+
+        if (!navMeshAgent.enabled)
+        {
+            navMeshAgent.updatePosition = false;
+            navMeshAgent.updateRotation = false;
+        }
+
+        if (navMeshAgent.enabled)
+        {
+            navMeshAgent.updatePosition = true;
+            navMeshAgent.updateRotation = true;
         }
         
         if (Alerted)
         {
-            EnemyLocomotionAnimator.SetFloat("LookDirection",Vector3.SignedAngle(RotationDirection,navMeshAgent.velocity,transform.up));
+            EnemyLocomotionAnimator.SetFloat("LookDirection",UnityEngine.Vector3.SignedAngle(RotationDirection,navMeshAgent.velocity,transform.up));
             // EnemyStateMachine.SetTrigger("CoverStateTrigger");
-            if (RotationTarget!=null)
+            if (RotationTarget!=null && navMeshAgent.enabled)
                 LookAtTarget();    
         }
 
@@ -209,8 +229,8 @@ public class EnemyCharacterBrain : MonoBehaviour
     public void LookAtTarget()
     {
         RotationDirection = RotationTarget.transform.position - transform.position;
-        lookDirection = Quaternion.LookRotation(RotationDirection);
-        transform.rotation = Quaternion.Slerp(transform.rotation,lookDirection, turnSpeed*Time.deltaTime);
+        lookDirection = UnityEngine.Quaternion.LookRotation(RotationDirection);
+        transform.rotation = UnityEngine.Quaternion.Slerp(transform.rotation,lookDirection, turnSpeed*Time.deltaTime);
         
     }
 
@@ -340,5 +360,10 @@ public class EnemyCharacterBrain : MonoBehaviour
 
         navMeshAgent.enabled = true;
         
+    }
+
+    public void WarpNavMeshToSkin()
+    {
+        navMeshAgent.Warp(CharacterDoll.transform.position);
     }
 }
