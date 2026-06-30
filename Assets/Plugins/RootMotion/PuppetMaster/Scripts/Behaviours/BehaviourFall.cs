@@ -1,7 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
 using RootMotion;
-using System.Diagnostics;
 
 namespace RootMotion.Dynamics {
 	
@@ -169,15 +168,13 @@ namespace RootMotion.Dynamics {
 		}
 		
 		protected override void OnFixedUpdate(float deltaTime) {
-			if (raycastLayers == -1) UnityEngine.Debug.LogWarning("BehaviourFall has no layers to raycast to.", transform);
+			if (raycastLayers == -1) Debug.LogWarning("BehaviourFall has no layers to raycast to.", transform);
 
 			// Blending between catch fall and writhe animations
 			float blendTarget = GetBlendTarget(GetGroundHeight());
 			float blend = Mathf.MoveTowards(puppetMaster.targetAnimator.GetFloat(blendParameter), blendTarget, deltaTime * blendSpeed);
 
 			puppetMaster.targetAnimator.SetFloat(blendParameter, blend);
-			UnityEngine.Debug.Log(puppetMaster.targetAnimator.name);
-			UnityEngine.Debug.Log(puppetMaster.targetAnimator.GetFloat("FallBlend"));
 
 			// Ending conditions
 			timer += deltaTime;
