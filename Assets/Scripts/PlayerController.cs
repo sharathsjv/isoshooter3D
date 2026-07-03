@@ -34,10 +34,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     float diveSpeed = 10;
     [SerializeField]
-    GameObject LookAtIk;
+    RecoilHandler LookAtIk;
 
     [SerializeField]
     public bool interactInput;
+
+    [SerializeField]
+    public float UpDownInput;
+    public float MaxYVertical, MinYVertical;
     
 
     void Start()
@@ -51,6 +55,7 @@ public class PlayerController : MonoBehaviour
 
         playerInput = GetComponent<PlayerInput>();
         movementAction = playerInput.actions.FindAction("Movement");
+        LookAtIk = GetComponentInChildren<RecoilHandler>();
     }
     void Update()
     {
@@ -223,6 +228,25 @@ public class PlayerController : MonoBehaviour
     public void MovePlayerStatic(Transform newposition)
     {
         transform.position = newposition.position;
+    }
+
+    public void LookUpDown(InputAction.CallbackContext context)
+    {
+        if (aimInput)
+        {
+            if (context.started)
+            {
+                UpDownInput = context.ReadValue<float>();
+
+                if (UpDownInput!=0)
+                {
+                    if (LookAtIk.transform.position.y<MaxYVertical||LookAtIk.transform.position.y>MinYVertical)
+                    {
+                        LookAtIk.currentTransform += new UnityEngine.Vector3(0f,UpDownInput,0f);
+                    }
+                }
+            }
+        }
     }
 
     

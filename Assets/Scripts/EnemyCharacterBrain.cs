@@ -31,7 +31,9 @@ public class EnemyCharacterBrain : MonoBehaviour
     [SerializeField]
     public Rig AimingRigLayer, LegsRigLayer, ArmsRigLayer;
     [SerializeField]
-    PuppetMaster puppetMaster;
+    public PuppetMaster puppetMaster;
+    [SerializeField]
+    public BehaviourFall RailingbehaviourFall;
 
 
 
@@ -141,7 +143,7 @@ public class EnemyCharacterBrain : MonoBehaviour
         navMeshAgent = GetComponent<NavMeshAgent>();
         PinWeightOverTime = 1;
         IsSitting = isSitting;
-        DefensiveCoverNodes = coverManager.CoverNodes;
+        // DefensiveCoverNodes = coverManager.CoverNodes;
         
     }
 

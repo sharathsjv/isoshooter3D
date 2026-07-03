@@ -75,7 +75,7 @@ public class BulletScript : MonoBehaviour
            theBrain = collision.gameObject.GetComponentInParent<EnemyCharacterBrain>();
            Debug.Log(theBrain.name);
            theBrain.healthPoints-=10;
-           theBrain.AlertedState();
+        //    theBrain.AlertedState();
         //    collision.collider.attachedRigidbody.GetComponent<MuscleCollisionBroadcaster>().Hit(rb.linearVelocity.magnitude*0.02f,Vector3.zero, collision.transform.position);
 
            if (theBrain.healthPoints<0)
@@ -84,6 +84,7 @@ public class BulletScript : MonoBehaviour
                 // collision.collider.attachedRigidbody.GetComponent<MuscleCollisionBroadcaster>().Hit(rb.linearVelocity.magnitude*0.02f,Vector3.zero, collision.transform.position);
             //    theBrain.EnableRagdoll(true);
             //    theBrain.EnemyStateMachine.SetTrigger("Dead");
+                theBrain.puppetMaster.Kill();
             } 
 
          }

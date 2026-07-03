@@ -12,7 +12,7 @@ public class RecoilHandler : MonoBehaviour
 
     // Private variables for internal calculations
     [SerializeField]
-    private Vector3 currentTransform;
+    public Vector3 currentTransform;
     
     void Start()
     {

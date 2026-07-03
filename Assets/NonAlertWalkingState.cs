@@ -20,9 +20,10 @@ public class NonAlertWalkingState : StateMachineBehaviour
     // OnStateUpdate is called on each Update frame between OnStateEnter and OnStateExit callbacks
     override public void OnStateUpdate(Animator animator, AnimatorStateInfo stateInfo, int layerIndex)
     {
-        if (EnemyCharacterBrain.navMeshAgent.remainingDistance<0.3)
+        if (EnemyCharacterBrain.navMeshAgent.enabled)
         {
-            animator.SetTrigger("NonAlertIdleForwardTrigger");
+            if (EnemyCharacterBrain.navMeshAgent.remainingDistance<0.3)
+                animator.SetTrigger("NonAlertIdleForwardTrigger");
         }
     }
 
