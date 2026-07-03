@@ -6,8 +6,17 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/SampleScene.unity
-    guid: 99c9720ab356a0642a771bea13969a05
+    path: Assets/Scenes/ES_HotelLevel_Lobby.unity
+    guid: c173e3ceb193f862193277fa1cbe7763
+  - enabled: 1
+    path: Assets/Scenes/ES_HotelLevel_Kitchen.unity
+    guid: 498c508cb0cca9929892c497394e5d1b
+  - enabled: 1
+    path: Assets/Scenes/ES_HotelLevel_HallWay.unity
+    guid: 88665de11c363b0b2bddd14fccda79d8
+  - enabled: 1
+    path: Assets/Scenes/ES_HotelLevel_RoyalSuite.unity
+    guid: 376ee088dcf3828deaf3745859f9687c
   m_configObjects:
     com.unity.input.settings: {fileID: 11400000, guid: 401e47f104367246792c15105ed038c0, type: 2}
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}

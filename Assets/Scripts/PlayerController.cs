@@ -59,6 +59,7 @@ public class PlayerController : MonoBehaviour
     }
     void Update()
     {
+        // transform.position.y=0f;
         animator.SetBool("moveInput",moveInput);
         animator.SetBool("isUp", isUp);
         rigLayer_Shooting.weight = aimVector.magnitude;

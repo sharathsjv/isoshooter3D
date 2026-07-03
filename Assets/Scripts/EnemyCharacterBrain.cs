@@ -19,6 +19,8 @@ using System.Numerics;
 public class EnemyCharacterBrain : MonoBehaviour
 {
     [SerializeField]
+    public bool AlertedAtBeginning;
+    [SerializeField]
     GameObject FollowTargetForRagdoll;
     [SerializeField]
     public Animator EnemyLocomotionAnimator,EnemyStateMachine;
@@ -144,6 +146,8 @@ public class EnemyCharacterBrain : MonoBehaviour
         PinWeightOverTime = 1;
         IsSitting = isSitting;
         // DefensiveCoverNodes = coverManager.CoverNodes;
+        if(AlertedAtBeginning)
+        AlertedState();
         
     }
 

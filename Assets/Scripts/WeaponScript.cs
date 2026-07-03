@@ -17,6 +17,7 @@ public class WeaponScript : MonoBehaviour
     public string BulletTag;
     public RecoilHandler recoilHandler;
     public GameObject[] bullets;
+    [SerializeField]
     int currentBullet;
     [SerializeField]
     public GameObject bulletSpawn;

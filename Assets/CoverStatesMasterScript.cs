@@ -40,9 +40,9 @@ public class CoverStatesMasterScript : StateMachineBehaviour
         if (coverStates == CoverStates.FindAndMoveToCover)
         {
             tempDistance = 5000;
-            foreach(var a in enemyCharacterBrain.coverManager.CoverNodes)
+            foreach(var a in enemyCharacterBrain.DefensiveCoverNodes)
             {
-                if (a.CoverHiddenFromPlayer||!a.isFilled)
+                if (a.CoverHiddenFromPlayer)
                 {
                     SelfToCover = a.transform.position - animator.transform.position;
                     SelfToPlayer = enemyCharacterBrain.RotationTarget.transform.position - animator.transform.position;
@@ -148,9 +148,16 @@ public class CoverStatesMasterScript : StateMachineBehaviour
         {
             enemyCharacterBrain.isCoverWeight = true;
             enemyCharacterBrain.EnemyLocomotionAnimator.SetTrigger("Crouch");
-            if (!enemyCharacterBrain.currentCoverNode.CoverHiddenFromPlayer)
+            if (enemyCharacterBrain.currentCoverNode.CoverHiddenFromPlayer==null)
             {
-                animator.SetTrigger("SearchForCoverTrigger");
+                return;
+            }
+            else
+            {   
+                if(!enemyCharacterBrain.currentCoverNode.CoverHiddenFromPlayer)
+                {
+                    animator.SetTrigger("SearchForCoverTrigger");
+                }
             }
             enemyCharacterBrain.SetAimingPoseWeight(0.01f);
             
